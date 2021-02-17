@@ -1,15 +1,24 @@
 import zipfile
+import apk2java
 
-
-class Analysis_APK():
-    def __init__(apk):
-        self.apk = apk
-        self.unzip_apk(apk)
+class AnalysisAPK():
+    def __init__(self, apk_src, zip_src, apk_dst):
+        self.apk_src = apk_src
+        self.zip_src = zip_src
+        self.apk_dst = apk_dst
     
-    def unzip_apk(apk):
+    def unzip_apk(self):
         # unzip apk
         try:
-            with zipfile.ZipFile(apk, 'r') as zip_ref:
-                zip_ref.extractall(".")
+            with zipfile.ZipFile(self.apk_src, 'r') as zip_ref:
+                zip_ref.extractall(self.apk_dst)
         except Exception as err:
             print(err)
+
+    def decompile_apk(self):
+        print(self.apk_src, self.apk_dst)
+        try:
+            apk2java.decompile(self.apk_src, self.apk_dst)
+        except Exception as err:
+            print(err)
+

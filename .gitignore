@@ -1,3 +1,7 @@
+# ignore apks
+apks/
+apks_unzip/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
