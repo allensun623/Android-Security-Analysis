@@ -61,7 +61,7 @@ def print_title(title):
     # print break line with title
     # ============== title =============
     total_len = 100
-    decoration = "=" * ((total_len - len(title)) // 2)
+    decoration = "=" * ((total_len - len(title) - 1) // 2)
     print(decoration + " " + title + " " + decoration)
 
 
