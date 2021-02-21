@@ -7,10 +7,10 @@ class ScanAPI:
         # ToDo: needs to check which folder stores the main source code
         # self.main_folders =  ["src/androidx/", "src/com/"]
         self.main_folders =  ["src/"]
-        self.java_files = self.scan_subfolder()
-        self.android_manifest = self.get_android_manifest()
+        self.java_files = self.__scan_subfolder()
+        self.android_manifest = self.__get_android_manifest()
 
-    def scan_subfolder(self):
+    def __scan_subfolder(self):
         # scan all .java files
         java_files = []
         for folder in self.main_folders:
@@ -26,17 +26,17 @@ class ScanAPI:
             print(f"Wrong source path or there is no .java file in the path: \"{self.apk_src}\n")
         return java_files
 
-    def get_android_manifest(self):
+    def __get_android_manifest(self):
         # If AndroidManifest.xml exists, return its path
         # Else, return false.
         file_path = self.apk_src + "/apktools/AndroidManifest.xml"
-        if self.file_dir_exist(file_path):
+        if self.__file_dir_exist(file_path):
             print("\"AndroidMaifest.xml\" scanned.")
             return file_path
         else:
             return False
 
-    def file_dir_exist(self, target_path):
+    def __file_dir_exist(self, target_path):
         exists = path.exists(target_path)
         if not exists:
             print("\"" + target_path + "\"" + " NOT EXISTS!")
