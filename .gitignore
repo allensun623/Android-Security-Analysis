@@ -1,6 +1,10 @@
 # ignore apks
 apks/
 apks_unzip/
+CICDataset/
+apks_codes/
+apps/
+classes-error.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
