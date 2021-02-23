@@ -5,6 +5,7 @@ CICDataset/
 apks_codes/
 apps/
 classes-error.zip
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
