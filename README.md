@@ -11,6 +11,14 @@ Mac:
 
 
 ## Scan
+
+
+* `analysis_codes.py`
+    * analyze a list of apks and its source codes for testing
+    * output features of apis and permissions as a csv file
+        * columns: features
+        * rows: samples
+
 * `extract_apk.py`
     * input source apk: apk_src
     * output decompiled source code: apk_dst
@@ -28,5 +36,8 @@ Mac:
     * decompile an apk
     * unzip an apk
 
-* `analysis_codes.py`
-    * analyze a single apk and its source codes for testing
+
+
+
+# DATASET
+[CICMalDroid 2020](https://www.unb.ca/cic/datasets/maldroid-2020.html)
