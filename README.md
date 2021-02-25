@@ -1,7 +1,7 @@
 # Android-Security-Analysis
 
 ## Decompile
-- install apktool
+* install apktool
 [installation of apktool](https://stackoverflow.com/questions/34336338/apktool-command-not-found-error)
 
 Mac: 
@@ -29,8 +29,9 @@ Mac:
         * `scan_codes = ScanCodes(apk_src)`
 
 * `scan_codes.py` 
-    * scan all .java files under the folder `src`.
+    * scan all .java files under the directory `src`.
     * Extract all methods from obtained java files and store as a dict.
+    * Extract all permission from AndroidManifest.xml and store as a list.
 
 * `apk_process.py`
     * decompile an apk
