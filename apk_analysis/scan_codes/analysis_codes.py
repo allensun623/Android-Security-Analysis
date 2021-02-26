@@ -89,9 +89,10 @@ def run(l_apk_name, dir_src):
     # convert dict
     d_int_api = convert_dict(l_apk_name, d_api)
     d_int_permission = convert_dict(l_apk_name, d_permission)
-    # print(d_int_api)
-    # print(d_int_permission)
-    output_csv(d_apk_name, d_int_api, d_int_permission)
+    print(d_int_api)
+    print(d_int_permission)
+    # Output as a csv file
+    # output_csv(d_apk_name, d_int_api, d_int_permission)
 
 def main():
     print_title("Start Scanning...")
