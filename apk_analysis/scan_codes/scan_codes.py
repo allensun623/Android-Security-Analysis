@@ -99,8 +99,9 @@ class ScanCodes:
                 # get all methods as a list
                 # methods = [m[1].split(" ")[-1] for m in match]
                 # print(methods)
+                mathods = self.__filter_methods(match)
                 d_methods = defaultdict(int)
-                for m in match:
+                for m in mathods:
                     # m is a set of (public|protected|private|static, string)
                     method = m[1].split(" ")[-1]
                     d_methods[method] += 1 
@@ -110,6 +111,14 @@ class ScanCodes:
         except Exception as e:
             print(e)
             return 
+
+    def __filter_methods(self, methods):
+        new_methods = []
+        for m in methods:
+            if len(m) >= 3:
+                new_methods.append(m)
+        return methods
+
 
     def print_title(self, title):
         # print break line with title

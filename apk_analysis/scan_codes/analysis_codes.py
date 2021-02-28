@@ -1,6 +1,7 @@
 from scan_codes import ScanCodes
 from collections import defaultdict
 import pandas as pd
+import copy
 
 def update_features_dict(apk_name, d_features, d_new_features):
     # update features from a dictionary of api or permission
@@ -18,24 +19,8 @@ def update_features_list(apk_name, d_features, l_new_features):
 
     return d_features
 
-def analysis_api(apk_name, d_api, d_methods):
-    # update api
-    # print(d_methods)
-    for api, _ in d_methods.items():
-        d_api[api].append(apk_name)
-
-    return d_api
-
-def analysis_permissions(apk_name, d_permission, l_permission):
-    # update permission
-    # print(l_permission)
-    for p in l_permission:
-        d_permission[p].append(apk_name)
-
-    return d_permission
-
 def convert_dict(l_apk_name, d_feature):
-    # convert {feature: [apk_name]} => {feature: [0, 1, ...]}
+    # convert {feature: [apk_names]} => {feature: [0, 1, ...]}
     d_int_feature = defaultdict(list)
     for feature, apk_names in d_feature.items():
         for apk_name in l_apk_name:
@@ -45,27 +30,57 @@ def convert_dict(l_apk_name, d_feature):
 def output_csv(d_apk_name, d_int_api, d_int_permission):
     # concate api and permission, and output as a csv file
     # Todo: add class(Benign 0; Malicious: 1) for each apk
-    d_apk_name.update(d_int_api)
-    d_apk_name.update(d_int_permission)
-    df_results = pd.DataFrame(data=d_apk_name)
-    output_path = "../db/feature_api_permission.csv"
+    print_title("Output CSV file")
+    output_csv_api(d_apk_name, d_int_api)
+    output_csv_permission(d_apk_name, d_int_permission)
+    output_csv_feature(d_apk_name, d_int_api, d_int_permission)
+
+def output_csv_feature(d_apk_name, d_int_api, d_int_permission):
+    # concate api and permission, and output as a csv file
+    # Todo: add class(Benign 0; Malicious: 1) for each apk
+    d_apk = copy.deepcopy(d_apk_name)
+    d_apk.update(d_int_api)
+    d_apk.update(d_int_permission)
+    df_results = pd.DataFrame(data=d_apk)
+    output_path = "../db/features.csv"
     df_results.to_csv(output_path, index=False)
     # print(d_apk_name)
-    print_title("Output CSV file")
     print(f"Output Path: {output_path}")
-    print(f"Total number of features: {len(df_results.columns)}" )
+    print(f"Total number of FEATUREs: {len(df_results.columns)}" )
     print(f"Total number of samples: {len(df_results)}" )
 
+def output_csv_api(d_apk_name, d_int_api):
+    # output apis 
+    # Todo: add class(Benign 0; Malicious: 1) for each apk
+    d_apk = copy.deepcopy(d_apk_name)
+    d_apk.update(d_int_api)
+    df_results = pd.DataFrame(data=d_apk)
+    output_path = "../db/feature_api.csv"
+    df_results.to_csv(output_path, index=False)
+    # print(d_apk_name)
+    print(f"Output Path: {output_path}")
+    print(f"Total number of APIs: {len(df_results.columns)}" )
+
+def output_csv_permission(d_apk_name, d_int_permission):
+    # output permission
+    d_apk = copy.deepcopy(d_apk_name)
+    d_apk.update(d_int_permission)
+    df_results = pd.DataFrame(data=d_apk)
+    output_path = "../db/feature_permission.csv"
+    df_results.to_csv(output_path, index=False)
+    # print(d_apk_name)
+    print(f"Output Path: {output_path}")
+    print(f"Total number of PERMISSIONs: {len(df_results.columns)}" )
 
 def print_title(title=""):
     # print break line with title
     # ============== title =============
     total_len = 100
     if title:
-        decoration = "=" * ((total_len - len(title) - 1) // 2)
+        decoration = "#" * ((total_len - len(title) - 1) // 2)
         print(decoration + " " + title + " " + decoration)
     else:
-        print("=" * 101)
+        print("#" * 101)
 
 def run(l_apk_name, dir_src):
     d_apk_name = {"apk_name": l_apk_name}
@@ -89,14 +104,17 @@ def run(l_apk_name, dir_src):
     # convert dict
     d_int_api = convert_dict(l_apk_name, d_api)
     d_int_permission = convert_dict(l_apk_name, d_permission)
-    print(d_int_api)
-    print(d_int_permission)
+    # print(d_int_api)
+    # print(d_int_permission)
     # Output as a csv file
-    # output_csv(d_apk_name, d_int_api, d_int_permission)
+    output_csv(d_apk_name, d_int_api, d_int_permission)
 
 def main():
     print_title("Start Scanning...")
-    l_apk_name = ["0a37f086841ff927ec8bee9f3bdb1048ecfba54b09aea400e980bd3ef301519d.77f09f214993016fbc747b5bafa5f94f", "0ac4aa9b5413666a2bd66b96faa0cc8e656144ffcd351101071f8d028970befa.2fd32776a17d88eaa6fb2bcd792695f0"]
+    # Native apks
+    # l_apk_name = ["0a37f086841ff927ec8bee9f3bdb1048ecfba54b09aea400e980bd3ef301519d.77f09f214993016fbc747b5bafa5f94f", "0ac4aa9b5413666a2bd66b96faa0cc8e656144ffcd351101071f8d028970befa.2fd32776a17d88eaa6fb2bcd792695f0"]
+    # Hybrid apks
+    l_apk_name = ["Instagram_v173.0.0.39.120_apkpure.com", "iBooks"]
     dir_src = "../../apps/apks_codes/"
     run(l_apk_name, dir_src)
 
