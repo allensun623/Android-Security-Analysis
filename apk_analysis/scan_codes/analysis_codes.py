@@ -2,6 +2,9 @@ from scan_codes import ScanCodes
 from collections import defaultdict
 import pandas as pd
 import copy
+from os import path
+from os import walk
+from os import scandir
 
 def update_features_dict(apk_name, d_features, d_new_features):
     # update features from a dictionary of api or permission
@@ -82,7 +85,9 @@ def print_title(title=""):
     else:
         print("#" * 101)
 
-def run(l_apk_name, dir_src):
+def run_scan(l_apk_name, dir_src):
+    # input: a list apk names and source directory
+    # output: csv files
     d_apk_name = {"apk_name": l_apk_name}
     # store api as dictionary {key: value} {api: list of apks}
     d_api = defaultdict(list)
@@ -98,8 +103,8 @@ def run(l_apk_name, dir_src):
         scan_codes = ScanCodes(apk_src)
         l_permission = scan_codes.get_permission_l()    # get permission as a list
         d_methods = scan_codes.get_all_methods_d()    # get methods as a dictionary
-        d_api = update_features_dict(apk_name, d_api, d_methods)
-        d_permission = update_features_list(apk_name, d_permission, l_permission)
+        d_api = update_features_dict(apk_name, d_api, d_methods)    # concate all dict for api
+        d_permission = update_features_list(apk_name, d_permission, l_permission)    # concate all dict for permission
         print("\n")
     # convert dict
     d_int_api = convert_dict(l_apk_name, d_api)
@@ -109,14 +114,23 @@ def run(l_apk_name, dir_src):
     # Output as a csv file
     output_csv(d_apk_name, d_int_api, d_int_permission)
 
+def scan_folder(dir_path):
+    # scan all subdirectories under a directory:
+    # return names of subdirectories
+    apk_dirs = [f.name for f in scandir(dir_path) if f.is_dir()]
+    # get all paths of subdirectories
+    # apk_dirs = [f.path for f in scandir(dir_path) if f.is_dir()]
+
+    print(f'Source apks: {len(apk_dirs)}')
+    return apk_dirs
+
 def main():
     print_title("Start Scanning...")
-    # Native apks
-    # l_apk_name = ["0a37f086841ff927ec8bee9f3bdb1048ecfba54b09aea400e980bd3ef301519d.77f09f214993016fbc747b5bafa5f94f", "0ac4aa9b5413666a2bd66b96faa0cc8e656144ffcd351101071f8d028970befa.2fd32776a17d88eaa6fb2bcd792695f0"]
+    dir_src = "../../apps/apks_codes/chirag/"
     # Hybrid apks
-    l_apk_name = ["Instagram_v173.0.0.39.120_apkpure.com", "iBooks"]
-    dir_src = "../../apps/apks_codes/"
-    run(l_apk_name, dir_src)
+    # l_apk_name = ["Instagram_v173.0.0.39.120_apkpure.com", "iBooks"]
+    l_apk_name = scan_folder(dir_src)
+    run_scan(l_apk_name, dir_src)
 
 if __name__ == '__main__':
     main()

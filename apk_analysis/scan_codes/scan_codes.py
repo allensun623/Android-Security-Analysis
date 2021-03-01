@@ -113,9 +113,12 @@ class ScanCodes:
             return 
 
     def __filter_methods(self, methods):
+        # filter java methods
         new_methods = []
         for m in methods:
-            if len(m) >= 3:
+            # length > 3
+            # filter string contains digit
+            if len(m) > 3 and (not bool(re.search(r'\d', m))):
                 new_methods.append(m)
         return methods
 

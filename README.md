@@ -14,10 +14,18 @@ Mac:
 
 
 * `analysis_codes.py`
+    * data
+        * input: source codes of a list of apks
+        * output: csv files for extracted permission, API, and combined features respectively
     * analyze a list of apks and its source codes for testing
     * output features of apis and permissions as a csv file
         * columns: features
-        * rows: samples
+        * rows: samples 
+
+* `apk_decompile_dataset.py`
+    * decompile all apks under a directory
+
+
 
 * `extract_apk.py`
     * input source apk: apk_src
