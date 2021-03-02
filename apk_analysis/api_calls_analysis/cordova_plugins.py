@@ -1,6 +1,6 @@
 d_plugins = {
     "battery": ["getBattery", "onlevelchange", "updateBatteryStatus", "onchargingchange", "ondischargingtimechange"],
-    "camera": ["getPicture", "CameraOptions", "PictureSourceType", "PopoverArrowDirection", "CameraPopoverHandle", "CameraPopoverOptions"],
+    "camera": ["getPicture", "cameraCallback", "CameraOptions", "PictureSourceType", "PopoverArrowDirection", "CameraPopoverHandle", "CameraPopoverOptions", "openCamera"],
     "device": ["device", "deviceready"],
     "dialogs": ["notification", "notification.alert", "notification.confirm", "notification.prompt", "notification.dismissAll", "notification.dismissPrevious", "notification.beep"],
     "file": ["resolveLocalFileSystemURL", "applicationDirectory", "applicationStorageDirectory", "dataDirectory", "cacheDirectory", "externalApplicationStorageDirectory", "externalDataDirectory", "externalCacheDirectory", "externalRootDirectory", "tempDirectory", "syncedDataDirectory", "documentsDirectory", "sharedDirectory"],
