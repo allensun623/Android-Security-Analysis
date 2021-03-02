@@ -94,7 +94,9 @@ class ScanCodes:
             with open (target_path, 'r') as source_file:
                 source_code = source_file.read() 
                 # find all methods match " public|protected|private|static ... ("
-                match = re.findall(" (public|protected|private|static) (.*?)\(", source_code)
+                # match = re.findall(" (public|protected|private|static) (.*?)\(", source_code)
+                # cordova: find all methods match "function|public|protected|private|static ... ("
+                match = re.findall("(function|public|protected|private|static) (.*?)\(", source_code)
                 # print(match)
                 # get all methods as a list
                 # methods = [m[1].split(" ")[-1] for m in match]
