@@ -8,6 +8,11 @@ class ScanCodes:
     """
         Scan all .java files under the apk decompiled source code folder `src`.
         Extract all methods from obtained java files and store as a dict.
+        dict:
+        apk_name feature1 feature2 feature3...
+        apk1     1         1         0
+        apk2     1         0         1
+        ...
     """
     def __init__(self, apk_src):
         self.apk_src = apk_src
@@ -80,7 +85,7 @@ class ScanCodes:
         self.print_title("Start Extracting Java Methods")
         d_methods = defaultdict(int)
         for target_path in tqdm(self.java_files):
-            d_methods_file = self.get_methods_single_java_file(target_path)
+            d_methods_file = self.__get_methods_single_java_file(target_path)
             # update to d_method
             if d_methods_file:
                 d_methods.update(d_methods_file)
@@ -88,7 +93,7 @@ class ScanCodes:
 
         return d_methods
 
-    def get_methods_single_java_file(self, target_path):
+    def __get_methods_single_java_file(self, target_path):
         # extract all methods from a java file, and store as a dict
         try: 
             with open (target_path, 'r') as source_file:
