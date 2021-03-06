@@ -35,10 +35,10 @@ def print_title(title):
 def main():
     # zip_src = "../apps/apks_upzip/0a37f086841ff927ec8bee9f3bdb1048ecfba54b09aea400e980bd3ef301519d.77f09f214993016fbc747b5bafa5f94f.zip"
     # input source apk
-    apk_name = "iBooks for Android Advice_v4.7_apkpure.com"
+    apk_name = "app-debug"
     apk_src = f"../../apps/apks/{apk_name}.apk" 
     # output source code
-    apk_dst = f"../../apps/apks_codes/{apk_name}.com"
+    apk_dst = f"../../apps/apks_codes/{apk_name}"
     decompile_apk(apk_src, apk_dst)
     # check dir and apk file
     # if file_dir_exist(apk_dst) and check_apk(apk_src):
