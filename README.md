@@ -12,6 +12,16 @@ Mac:
 
 ## Scan
 
+### cdv_scan
+* `output_csv.py`
+    * Input: 
+        * dictionaries: apk_names, apis,  permissions
+        * the output directory path
+    * Output: csv files
+        * cordova_APIs.csv
+        * cordova_PERMISSIONs.csv
+        * cordova_FEATUREs.csv
+
 
 * `analysis_codes.py`
     * data

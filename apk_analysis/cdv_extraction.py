@@ -16,8 +16,8 @@ def main():
     # directory for apk source codes
     dir_src = "../apps/apks_codes/chirag/"
     # directory for output csv
-    dir_output = "db/cordova/"
-    l_apk_name = scan_folder(dir_src)
+    dir_output = "db/cdv/"
+    l_apk_name = scan_folder(dir_src)[:5]
     run_scan(l_apk_name, dir_src, dir_output)
 
 if __name__ == '__main__':

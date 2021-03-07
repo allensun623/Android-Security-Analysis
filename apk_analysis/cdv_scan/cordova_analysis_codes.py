@@ -3,7 +3,8 @@ from collections import defaultdict
 import pandas as pd
 import copy
 from os import scandir
-from cordova_plugins import get_func
+from pathlib import Path
+from .output_csv import output_csv
 
 
 def update_functions(apk_name, d_features, d_new_features):
@@ -23,7 +24,7 @@ def update_permission(apk_name, d_features, l_new_features):
     return d_features
 
 def convert_dict_bool(l_apk_name, d_feature):
-    # convert {feature: [apk_names]} => {feature: [0, 1, 1, 0, ...]}
+    # convert {feature: [apk_names]} => {feature: binary}: {feature: [0, 1, 1, 0, ...]}
     d_int_feature = defaultdict(list)
     for feature, apk_names in d_feature.items():
         for apk_name in l_apk_name:
@@ -31,57 +32,12 @@ def convert_dict_bool(l_apk_name, d_feature):
     return d_int_feature
 
 def convert_dict_digit(l_apk_name, d_feature):
-    # convert {feature: [apk_names]} => {feature: [3, 1, 6, 4, ...]}
+    # convert {feature: [apk_names]} => {feature: category}: {feature: [3, 1, 6, 4, ...]}
     d_int_feature = defaultdict(list)
     for feature, apk_names in d_feature.items():
         for apk_name in l_apk_name:
             d_int_feature[feature].append(int(apk_name in apk_names))
     return d_int_feature
-
-def output_csv(d_apk_name, d_int_api, d_int_permission, dir_output):
-    # concate api and permission, and output as a csv file
-    # Todo: add class(Benign 0; Malicious: 1) for each apk
-    print_title("Output CSV file")
-    output_csv_api(d_apk_name, d_int_api, dir_output)
-    output_csv_permission(d_apk_name, d_int_permission, dir_output)
-    output_csv_feature(d_apk_name, d_int_api, d_int_permission, dir_output)
-
-def output_csv_feature(d_apk_name, d_int_api, d_int_permission, dir_output):
-    # concate api and permission, and output as a csv file
-    # Todo: add class(Benign 0; Malicious: 1) for each apk
-    d_apk = copy.deepcopy(d_apk_name)
-    d_apk.update(d_int_api)
-    d_apk.update(d_int_permission)
-    df_results = pd.DataFrame(data=d_apk)
-    output_path = dir_output + "cordova_features.csv"
-    df_results.to_csv(output_path, index=False)
-    # print(d_apk_name)
-    print(f"Output Path: {output_path}")
-    print(f"Total number of FEATUREs: {len(df_results.columns)}" )
-    print(f"Total number of samples: {len(df_results)}" )
-
-def output_csv_api(d_apk_name, d_int_api, dir_output):
-    # output apis 
-    # Todo: add class(Benign 0; Malicious: 1) for each apk
-    d_apk = copy.deepcopy(d_apk_name)
-    d_apk.update(d_int_api)
-    df_results = pd.DataFrame(data=d_apk)
-    output_path = dir_output + "cordova_feature_api.csv"
-    df_results.to_csv(output_path, index=False)
-    # print(d_apk_name)
-    print(f"Output Path: {output_path}")
-    print(f"Total number of APIs: {len(df_results.columns)}" )
-
-def output_csv_permission(d_apk_name, d_int_permission, dir_output):
-    # output permission
-    d_apk = copy.deepcopy(d_apk_name)
-    d_apk.update(d_int_permission)
-    df_results = pd.DataFrame(data=d_apk)
-    output_path = dir_output + "cordova_feature_permission.csv"
-    df_results.to_csv(output_path, index=False)
-    # print(d_apk_name)
-    print(f"Output Path: {output_path}")
-    print(f"Total number of PERMISSIONs: {len(df_results.columns)}" )
 
 def print_title(title=""):
     # print break line with title
@@ -94,14 +50,16 @@ def print_title(title=""):
         print("#" * 101)
 
 def run_scan(l_apk_name, dir_src, dir_output):
-    # input: a list apk names and source directory
-    # output: csv files
+    """
+        input: a list apk names and source directory
+        output: csv files
+    """
     d_apk_name = {"apk_name": l_apk_name}
-    # store api as dictionary {key: value} {api: list of apks}
+    # store api as dictionary {key: value} => {api: list of apks}
     d_api = defaultdict(list)
-    # store permission as dictionary {key: value} {permission: list of apks}
+    # store permission as dictionary {key: value} => {permission: list of apks}
     d_permission = defaultdict(list)
-    # Update dictionary of api and permission
+    # scan all apks and update dictionary of api and permission
     total_apks = len(l_apk_name)
     for i, apk_name in enumerate(l_apk_name):
         print_title()
@@ -119,7 +77,8 @@ def run_scan(l_apk_name, dir_src, dir_output):
     d_int_permission = convert_dict_bool(l_apk_name, d_permission)
     # print(d_int_api)
     # print(d_int_permission)
-    # Output as a csv file
+
+    # Output as csv files
     output_csv(d_apk_name, d_api, d_int_permission, dir_output)
 
 def scan_folder(dir_path):
@@ -136,7 +95,7 @@ def main():
     # directory for apk source codes
     dir_src = "../../apps/apks_codes/chirag/"
     # directory for output csv
-    dir_output = "../db/"
+    dir_output = "../db/cdv/"
     # Hybrid apks
     # l_apk_name = ["Instagram_v173.0.0.39.120_apkpure.com", "iBooks"]
     l_apk_name = scan_folder(dir_src)
