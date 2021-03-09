@@ -18,7 +18,7 @@ class ScanCodes:
         self.apk_src = apk_src
         # ToDo: needs to check which folder stores the main source code
         # self.main_folders =  ["src/androidx/", "src/com/"]
-        self.main_folders =  ["src/"]
+        self.main_folders =  ["apktools/assets/www/"]
         self.java_files = self.__scan_subfolder()
         # self.l_permission = None
         self.android_manifest = self.__get_android_manifest()

@@ -16,7 +16,7 @@ class CordovaScanCodes(ScanCodes):
 
     def get_all_methods_d(self):
         # extract all methods from a list of java files, and store as a dict
-        self.print_title("Start Extracting Java Methods")
+        self.print_title("Start Extracting API Calls")
 
         # for target_path in tqdm(self.java_files):  # this is for process bar
         for target_path in self.java_files:

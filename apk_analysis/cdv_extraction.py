@@ -1,5 +1,6 @@
-from cdv_scan.cordova_analysis_codes import run_scan
-from cdv_scan.cordova_analysis_codes import scan_folder
+from cdv_scan.cdv_analysis_codes import run_scan
+from cdv_scan.cdv_analysis_codes import scan_folder
+from cdv_scan.cdv_plugins import get_object
 
 def print_title(title=""):
     # print break line with title
@@ -17,8 +18,15 @@ def main():
     dir_src = "../apps/apks_codes/chirag/"
     # directory for output csv
     dir_output = "db/cdv/"
-    l_apk_name = scan_folder(dir_src)[:5]
-    run_scan(l_apk_name, dir_src, dir_output)
+    # main source folder
+    main_folders = ["apktools/assets/www/"]
+    # main files for scanning
+    main_extentions = [".js", ".html", ".mustache"]
+    # main targets for scanning
+    main_targets = get_object()
+    # Hybrid apks
+    run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets)
+
 
 if __name__ == '__main__':
     main()

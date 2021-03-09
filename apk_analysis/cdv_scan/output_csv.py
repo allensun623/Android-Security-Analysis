@@ -26,10 +26,11 @@ def output_csv(d_apk_name, d_int_api, d_int_permission, dir_output):
     create_csv_dir(dir_output)
     features = ["API", "PERMISSION", "FEATURE"]
     for feature in features:
-        df_results = output_csv_single(
+        output_csv_feature(
             d_apk_name, d_int_api, d_int_permission, dir_output, feature
         )
-    print(f"Total number of APKs: {len(df_results)}")
+    # d_apk_name = {'apk_name': [apk1, apk2, ...]}
+    print(f"Total number of APKs: {len(list(d_apk_name.values())[0])}")    # first value
 
 
 def output_csv_feature(d_apk_name, d_int_api, d_int_permission, dir_output, feature):
@@ -42,8 +43,7 @@ def output_csv_feature(d_apk_name, d_int_api, d_int_permission, dir_output, feat
         d_apk.update(d_int_permission)
 
     output_path = dir_output + f"cordova_{feature}s.csv"
-    df_results = output_csv_file(d_apk, output_path, f"{feature}")
-    return df_results
+    output_csv_file(d_apk, output_path, f"{feature}")
 
 
 def output_csv_file(d_apk, output_path, feature):
@@ -53,12 +53,10 @@ def output_csv_file(d_apk, output_path, feature):
         df_results.to_csv(output_path, index=False)
         # print(d_apk_name)
         print(f"Output Path: {output_path}")
-        print(f"Total number of {feature}s: {len(df_results.columns)}\n")
-        return df_results
+        print(f"Total number of {feature}s: {len(df_results.columns)-1}\n")
 
     except Exception as e:
         print(e)
-        return
 
 
 def print_title(title=""):

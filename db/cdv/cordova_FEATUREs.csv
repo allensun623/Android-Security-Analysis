@@ -1,0 +1,6 @@
+apk_name,navigator.getBattery,navigator.camera,device,navigator.notification,cordova.file,navigator.geolocation,cordova.InAppBrowser,Media,navigator.device.capture,navigator.connection,screen.orientation,navigator.splashscreen,StatusBar,navigator.vibrate,android.permission.INTERNET,android.permission.ACCESS_NETWORK_STATE,android.permission.WRITE_EXTERNAL_STORAGE,android.permission.ACCESS_COARSE_LOCATION,android.permission.ACCESS_FINE_LOCATION,android.permission.ACCESS_LOCATION_EXTRA_COMMANDS,android.permission.GET_ACCOUNTS,android.permission.BROADCAST_STICKY,android.permission.READ_PHONE_STATE,android.permission.WAKE_LOCK,com.koimoi.android.permission.C2D_MESSAGE,com.google.android.c2dm.permission.RECEIVE
+com.pr.ojectblue.dothis,0,6,7,2,0,8,0,1,2,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+com.indiageeks.apk,0,1,1,13,0,1,0,94,1,4,0,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0
+com.koimoi.android,0,1,4,2,0,1,0,94,1,2,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1
+com.activitylabs.bankbluffer,0,0,8,0,0,4,0,98,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0
+prayerguide.thegagne.com,0,4,7,3,0,8,0,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0

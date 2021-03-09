@@ -23,7 +23,7 @@ d_plugins = {
         "object": "navigator.getBattery",
         "method": [],
         "property": [],
-        "event": [],
+        "event": ["batterystatus", "batterycritical", "batterylow"],
     },
     # navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
     "camera": {
@@ -199,7 +199,7 @@ def get_func():
     # return all functions(["method", "property", "event"]) of all plugins as one list
     # [plugin1.function1, plugin1.function2, ..., ]
     l_func = []
-    values = ["method", "property", "event"]
+    values = ["method", "property"]
     for funcs in d_plugins.values():
         plugin_obj = funcs["object"]
         for v in values:
@@ -207,11 +207,32 @@ def get_func():
                 l_func.append[f"{plugin_obj}.{func}"]
     return l_func
 
-
 def get_plugin():
     # return all plugins as a list
     # [plugin1, plugin2, ]
     return d_plugins.keys()
+
+def get_event_object():
+    # return event and object of API call as a {key, value} pair:
+    # [event1_object1, event2_object1, object1: object1, event1_object2, ...]
+    l_temp = []
+    for v in d_plugins.values():
+        event = v[event]
+        if event:
+            l_temp.extend(event)
+        l_temp.append(v["object"])
+    return l_temp
+
+def get_event_object_d():
+    # return event and object of API call as a list:
+    # [event1_object1: object1, event2_object1: object1, object1: object1, event1_object2: object2 , ...]
+    d_temp = {}
+    for v in d_plugins.values():
+        event = v[event]
+        for e in event:
+            d_temp[e] = v["object"]
+        d_temp[v["object"]] = v["object"]
+    return d_temp
 
 def get_object():
     # return object of API call as a list:
