@@ -49,8 +49,10 @@ class ScanCodes:
         # extract all targets from a list of files, and store as a dict
         self.print_title("Start Extracting Targets")
         d_targets = {target:0 for target in self.main_targets}
+        # find all targets match " target1|target2|..."
+        find_string = "|".join(self.main_targets)
         for target_path in tqdm(self.target_files):
-            d_targets_single = self.__get_target_single_file(target_path)
+            d_targets_single = self.__get_target_single_file(target_path, find_string)
             # update to d_targets
             if d_targets_single:
                 d_targets.update(d_targets_single)
@@ -58,14 +60,12 @@ class ScanCodes:
 
         return d_targets
 
-    def __get_target_single_file(self, target_path):
+    def __get_target_single_file(self, target_path, find_string):
         # extract all targets from a extention file, and store as a dict
         d_targets = defaultdict(int)
         try: 
             with open (target_path, 'r') as source_file:
                 source_code = source_file.read() 
-                # find all targets match " target1|target2|..."
-                find_string = "|".join(self.main_targets)
                 # print(find_string)
                 match = re.findall(f"({find_string})", source_code)
                 for m in match:
