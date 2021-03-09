@@ -84,7 +84,7 @@ d_plugins = {
             "sharedDirectory",
         ],
         "property": [],
-        "event": [],
+        "event": ["requestFileSystem", "resolveLocalFileSystemURL"],
     },
     # navigator.geolocation.getCurrentPosition(geolocationSuccess, [geolocationError], [geolocationOptions]);
     "geolocation": {
@@ -137,7 +137,7 @@ d_plugins = {
         "object": "navigator.connection",
         "method": [],
         "property": ["type"],
-        "event": [],
+        "event": ["offline"],
     },
     # // set to either landscape
     # screen.orientation.lock('landscape');
@@ -149,7 +149,7 @@ d_plugins = {
         "object": "screen.orientation",
         "method": ["lock", "unlock"],
         "property": ["type"],
-        "event": [],
+        "event": ["orientationchange"],
     },
     # setTimeout(function() {
     #   navigator.splashscreen.hide();
@@ -217,7 +217,7 @@ def get_event_object():
     # [event1_object1, event2_object1, object1: object1, event1_object2, ...]
     l_temp = []
     for v in d_plugins.values():
-        event = v[event]
+        event = v["event"]
         if event:
             l_temp.extend(event)
         l_temp.append(v["object"])
@@ -228,7 +228,7 @@ def get_event_object_d():
     # [event1_object1: object1, event2_object1: object1, object1: object1, event1_object2: object2 , ...]
     d_temp = {}
     for v in d_plugins.values():
-        event = v[event]
+        event = v["event"]
         for e in event:
             d_temp[e] = v["object"]
         d_temp[v["object"]] = v["object"]
@@ -237,6 +237,11 @@ def get_event_object_d():
 def get_object():
     # return object of API call as a list:
     return [v["object"] for v in d_plugins.values()]
+
+
+def get_object_d():
+    # return object of API call as a dictionary {object:0}:
+    return {obj:0 for obj in get_object()}
 
 def get_plugin_func():
     # return all functions(method, propert, event) and plugins as one list
