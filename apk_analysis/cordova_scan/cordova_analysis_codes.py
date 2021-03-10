@@ -3,7 +3,7 @@ from collections import defaultdict
 import pandas as pd
 import copy
 from os import scandir
-from cordova_plugins import get_func
+from .cordova_plugins import get_func
 
 
 def update_functions(apk_name, d_features, d_new_features):

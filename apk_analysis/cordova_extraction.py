@@ -1,5 +1,5 @@
-from cdv_scan.cordova_analysis_codes import run_scan
-from cdv_scan.cordova_analysis_codes import scan_folder
+from cordova_scan.cordova_analysis_codes import run_scan
+from cordova_scan.cordova_analysis_codes import scan_folder
 
 def print_title(title=""):
     # print break line with title

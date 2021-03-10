@@ -5,8 +5,10 @@ from os import scandir
 
 # from .cdv_plugins import get_object
 from .cdv_plugins import get_object_d
+
 # from .cdv_plugins import get_event_object
 from .cdv_plugins import get_event_object_d
+from .cdv_plugins import get_plugin_object_d
 from .output_csv import output_csv
 
 
@@ -64,6 +66,7 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     output: csv files
     """
     l_apk_name = scan_folder(dir_src)
+    d_plugin_object = get_plugin_object_d()
     d_apk_name = {"apk_name": l_apk_name}
     # store api as dictionary {key: value} => {api: list of apks}
     d_api_all = defaultdict(list)
@@ -87,6 +90,8 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
         )  # concate all dict for permission
         print("\n")
     # print(d_api_all)
+    # map object to plugin
+    d_api_all = {d_plugin_object[k]: v for k, v in d_api_all.items()}
     # print(d_permission_all)
     d_int_permission_all = convert_dict_bool(l_apk_name, d_permission_all)
     # print(d_int_permission_all)

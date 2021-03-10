@@ -30,7 +30,7 @@ d_plugins = {
         "object": "navigator.camera",
         "method": ["getPicture", "cleanup", "onError", "onSuccess", "CameraOptions"],
         "property": [],
-        "event": [],
+        "event": ["Camera."],
     },
     # var string = device.platform;
     "device": {
@@ -65,7 +65,7 @@ d_plugins = {
     # function onDeviceReady() {
     #     console.log(cordova.file);
     # }
-    # TODO - Android file 
+    # TODO - Android file
     "file": {
         "object": "cordova.file",
         "method": [
@@ -193,6 +193,8 @@ d_plugins = {
 }
 
 # TODO - Redesign get event, method, object
+# TODO - Third party library:
+# TODO -    Google Map JavaScript Library
 
 
 def get_func():
@@ -207,10 +209,18 @@ def get_func():
                 l_func.append[f"{plugin_obj}.{func}"]
     return l_func
 
+
 def get_plugin():
     # return all plugins as a list
     # [plugin1, plugin2, ]
     return d_plugins.keys()
+
+
+def get_plugin_object_d():
+    # return plugin and object of API call as a dictionary:
+    # [object1: plugin1, object2: plugin2...]
+    return {v["object"]: plugin for plugin, v in d_plugins.items()}
+
 
 def get_event_object():
     # return event and object of API call as a {key, value} pair:
@@ -223,6 +233,7 @@ def get_event_object():
         l_temp.append(v["object"])
     return l_temp
 
+
 def get_event_object_d():
     # return event and object of API call as a list:
     # [event1_object1: object1, event2_object1: object1, object1: object1, event1_object2: object2 , ...]
@@ -234,6 +245,7 @@ def get_event_object_d():
         d_temp[v["object"]] = v["object"]
     return d_temp
 
+
 def get_object():
     # return object of API call as a list:
     return [v["object"] for v in d_plugins.values()]
@@ -241,23 +253,4 @@ def get_object():
 
 def get_object_d():
     # return object of API call as a dictionary {object:0}:
-    return {obj:0 for obj in get_object()}
-
-def get_plugin_func():
-    # return all functions(method, propert, event) and plugins as one list
-    # [plugin1_function1, plugin1_function2, ..., plugin1, ... plugin]
-    l_plugins_func = []
-    for plugin, funcs in d_plugins.items():
-        l_plugins_func.extend(funcs)
-        l_plugins_func.append(plugin)
-    return l_plugins_func
-
-
-def get_func_plugin_dict():
-    # Todo - some plugin might have the same function name
-    # return a dict of func and plugin pair
-    # {function: plugin}
-    d_func_plugin = {
-        func: plugin for plugin, funcs in d_plugins.items() for func in funcs
-    }
-    return d_func_plugin
+    return {obj: 0 for obj in get_object()}

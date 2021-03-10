@@ -27,7 +27,7 @@ class CordovaScanCodes(ScanCodes):
             self.__get_methods_single_java_file(target_path)
         
         # print(f"Total unique methods extracted: {len(self.d_methods)}")
-        print(self.d_methods)
+        # print(self.d_methods)
         return self.d_methods
 
     def __get_methods_single_java_file(self, target_path):
