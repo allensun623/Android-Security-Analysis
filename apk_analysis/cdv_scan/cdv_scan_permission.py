@@ -3,12 +3,10 @@ import re
 
 class ScanPermission:
     """
-        Scan all .java files under the apk decompiled source code folder `src`.
-        Extract all methods from obtained java files and store as a dict.
-        dict:
-        apk_name feature1 feature2 feature3...
-        apk1     1         1         0
-        apk2     1         0         1
+        Scan all AndroidManifest.xml files under the apk decompiled source code folder `/apktools/`.
+        Extract all permission and store as a list.
+        list:
+        [permission1, permission2, ...]
         ...
     """
     def __init__(self, apk_src):

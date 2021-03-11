@@ -8,11 +8,7 @@ class ScanCodes:
     """
         Scan all files(e.g. .js, .html) under the apk decompiled source code folder `src`.
         Extract all targets from obtained extention files and store as a dict.
-        dict:
-        apk_name feature1 feature2 feature3...
-        apk1     1         1         0
-        apk2     1         0         1
-        ...
+        dict: {main_target1: int, main_target2: int, ...}
     """
     def __init__(self, apk_src, main_folders, main_extentions, main_targets):
         self.apk_src = apk_src
@@ -20,7 +16,7 @@ class ScanCodes:
         # self.main_folders =  ["src/androidx/", "src/com/"]
         self.main_folders =  main_folders    # main source folder
         self.main_extentions = main_extentions    # main suffix file e.g. .js, .html
-        self.main_targets = main_targets    # a list of targets e.g. .js, .html
+        self.main_targets = main_targets    # a list of targets e.g. battery, camera
         self.target_files = self.__scan_subfolder()
 
     def __scan_subfolder(self):

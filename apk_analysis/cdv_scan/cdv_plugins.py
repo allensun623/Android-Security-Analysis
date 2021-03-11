@@ -246,6 +246,16 @@ def get_plugin_object_d():
     # [object1: plugin1, object2: plugin2...]
     return {v["object"]: plugin for plugin, v in d_plugins.items()}
 
+def get_name_plugin_d():
+    # return plugin and name of API call as a dictionary:
+    # [name1: plugin1, name2: plugin2...]
+    return {v["name"]: plugin for plugin, v in d_plugins.items()}
+
+def get_plugin_name_d():
+    # return plugin and name of API call as a dictionary:
+    # [name1: plugin1, name2: plugin2...]
+    return {plugin:v["name"]  for plugin, v in d_plugins.items()}
+
 
 def get_event_object():
     # return event and object of API call as a {key, value} pair:
