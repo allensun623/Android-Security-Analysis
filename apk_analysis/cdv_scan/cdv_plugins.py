@@ -2,7 +2,8 @@
 d_plugins
     use example
     plugin: {
-        "object": "", 
+        "name": "",  # plugin name defined in plugin.xml and config.xml
+        "object": "",  # API call
         "method": [],
         "property": [],
         "event": [],  
@@ -19,21 +20,26 @@ d_plugins = {
     #     console.log(this.level);
     # };
     # });
-    "battery": {
+    "battery-status": {
+        "name": "Battery",
         "object": "navigator.getBattery",
         "method": [],
         "property": [],
         "event": ["batterystatus", "batterycritical", "batterylow"],
+        "java_class": ["BatteryListener.java"]
     },
     # navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
     "camera": {
+        "name": "Camera",
         "object": "navigator.camera",
         "method": ["getPicture", "cleanup", "onError", "onSuccess", "CameraOptions"],
         "property": [],
         "event": ["Camera."],
+        "java_class": [""]
     },
     # var string = device.platform;
     "device": {
+        "name": "Device",
         "object": "device",
         "method": [],
         "property": [
@@ -49,6 +55,7 @@ d_plugins = {
         "event": [],
     },
     "dialogs": {
+        "name": "Notification",
         "object": "navigator.notification",
         "method": [
             "alert",
@@ -67,6 +74,7 @@ d_plugins = {
     # }
     # TODO - Android file
     "file": {
+        "name": "File",
         "object": "cordova.file",
         "method": [
             "resolveLocalFileSystemURL",
@@ -88,8 +96,17 @@ d_plugins = {
     },
     # navigator.geolocation.getCurrentPosition(geolocationSuccess, [geolocationError], [geolocationOptions]);
     "geolocation": {
+        "name": "Geolocation",
         "object": "navigator.geolocation",
         "method": ["getCurrentPosition", "watchPosition", "clearWatch"],
+        "property": [],
+        "event": [],
+    },
+    # console.log(navigator.globalization);
+    "globalization": {
+        "name": "Globalization",
+        "object": "navigator.globalization",
+        "method": ["getPreferredLanguage", "getLocaleName", "dateToString", "stringToDate", "getDatePattern", "getDateNames", "isDayLightSavingsTime", "getFirstDayOfWeek", "numberToString", "stringToNumber", "getNumberPattern", "getCurrencyPattern"],
         "property": [],
         "event": [],
     },
@@ -97,6 +114,7 @@ d_plugins = {
     # var iab = cordova.InAppBrowser;
     # iab.open('local-url.html'); // loads in the Cordova WebView
     "InAppBrowser": {
+        "name": "InAppBrowser",
         "object": "cordova.InAppBrowser",
         "method": ["open"],
         "property": [],
@@ -105,6 +123,7 @@ d_plugins = {
     # var my_media = new Media(src, onSuccess, onError);
     # my_media.startRecord();
     "media": {
+        "name": "Media",
         "object": "Media",
         "method": [
             "getCurrentAmplitude",
@@ -127,6 +146,7 @@ d_plugins = {
     },
     # navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
     "media-capture": {
+        "name": "Capture",
         "object": "navigator.device.capture",
         "method": ["captureAudio", "captureImage", "captureVideo"],
         "property": [],
@@ -134,6 +154,7 @@ d_plugins = {
     },
     # var networkState = navigator.connection.type;
     "network-information": {
+        "name": "Network Information",
         "object": "navigator.connection",
         "method": [],
         "property": ["type"],
@@ -146,6 +167,7 @@ d_plugins = {
     # // access current orientation
     # console.log('Orientation is ' + screen.orientation.type);
     "screen-orientation": {
+        "name": "Screen Orientation",
         "object": "screen.orientation",
         "method": ["lock", "unlock"],
         "property": ["type"],
@@ -155,6 +177,7 @@ d_plugins = {
     #   navigator.splashscreen.hide();
     # }, 2000);
     "splashscreen": {
+        "name": "Splashscreen",
         "object": "navigator.splashscreen",
         "method": ["show", "hide"],
         "property": [],
@@ -165,6 +188,7 @@ d_plugins = {
     # // do something
     # }
     "statusbar": {
+        "name": "StatusBar",
         "object": "StatusBar",
         "method": [
             "overlaysWebView",
@@ -185,6 +209,7 @@ d_plugins = {
     #     console.log(navigator.vibrate);
     # }
     "vibration": {
+        "name": "Vibration",
         "object": "navigator.vibrate",
         "method": [],
         "property": [],
