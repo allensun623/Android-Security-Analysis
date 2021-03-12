@@ -1,6 +1,7 @@
 @REM shell command
 cordova plugin add cordova-plugin-battery-status
 cordova plugin add cordova-plugin-camera  
+cordova plugin add cordova-plugin-contacts  
 cordova plugin add cordova-plugin-device 
 cordova plugin add cordova-plugin-dialogs
 cordova plugin add cordova-plugin-file

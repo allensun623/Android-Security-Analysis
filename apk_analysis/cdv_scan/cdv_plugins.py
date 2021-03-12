@@ -35,7 +35,16 @@ d_plugins = {
         "method": ["getPicture", "cleanup", "onError", "onSuccess", "CameraOptions"],
         "property": [],
         "event": ["Camera."],
-        "java_class": [""]
+        "java_class": []
+    },
+    # var myContact = navigator.contacts.create({"displayName": "Test User"});
+    "contacts": {
+        "name": "Contacts",
+        "object": "navigator.contacts",
+        "method": ["create", "find", "pickContact"],
+        "property": [],
+        "event": [],
+        "java_class": ["ContactName", "ContactField", "ContactAddress", "ContactOrganization", "ContactFindOptions", "ContactError", "ContactFieldType"]
     },
     # var string = device.platform;
     "device": {
@@ -166,13 +175,13 @@ d_plugins = {
     # screen.orientation.unlock();
     # // access current orientation
     # console.log('Orientation is ' + screen.orientation.type);
-    "screen-orientation": {
-        "name": "CDVOrientation",
-        "object": "screen.orientation",
-        "method": ["lock", "unlock"],
-        "property": ["type"],
-        "event": ["orientationchange"],
-    },
+    # "screen-orientation": {
+    #     "name": "CDVOrientation",
+    #     "object": "screen.orientation",
+    #     "method": ["lock", "unlock"],
+    #     "property": ["type"],
+    #     "event": ["orientationchange"],
+    # },
     # setTimeout(function() {
     #   navigator.splashscreen.hide();
     # }, 2000);
