@@ -113,7 +113,7 @@ d_plugins = {
     # var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     # var iab = cordova.InAppBrowser;
     # iab.open('local-url.html'); // loads in the Cordova WebView
-    "InAppBrowser": {
+    "inappbrowser": {
         "name": "InAppBrowser",
         "object": "cordova.InAppBrowser",
         "method": ["open"],
@@ -154,7 +154,7 @@ d_plugins = {
     },
     # var networkState = navigator.connection.type;
     "network-information": {
-        "name": "Network Information",
+        "name": "NetworkStatus",
         "object": "navigator.connection",
         "method": [],
         "property": ["type"],
@@ -167,7 +167,7 @@ d_plugins = {
     # // access current orientation
     # console.log('Orientation is ' + screen.orientation.type);
     "screen-orientation": {
-        "name": "Screen Orientation",
+        "name": "CDVOrientation",
         "object": "screen.orientation",
         "method": ["lock", "unlock"],
         "property": ["type"],
@@ -177,7 +177,7 @@ d_plugins = {
     #   navigator.splashscreen.hide();
     # }, 2000);
     "splashscreen": {
-        "name": "Splashscreen",
+        "name": "SplashScreen",
         "object": "navigator.splashscreen",
         "method": ["show", "hide"],
         "property": [],
