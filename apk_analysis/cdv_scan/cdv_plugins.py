@@ -43,8 +43,8 @@ d_plugins = {
         "object": "navigator.contacts",
         "method": ["create", "find", "pickContact"],
         "property": [],
-        "event": [],
-        "java_class": ["ContactName", "ContactField", "ContactAddress", "ContactOrganization", "ContactFindOptions", "ContactError", "ContactFieldType"]
+        "event": ["ContactName", "ContactField", "ContactAddress", "ContactOrganization", "ContactFindOptions", "ContactError", "ContactFieldType"], # they are objects, store as event for extraction
+        "java_class": []
     },
     # var string = device.platform;
     "device": {
