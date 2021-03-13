@@ -7,6 +7,7 @@ d_plugins
         "method": [],
         "property": [],
         "event": [],  
+        "java_class": []
     }
 
 """
