@@ -61,7 +61,7 @@ def convert_dict_digit(l_apk_name, d_feature):
             d_int_feature[feature].append(int(apk_name in apk_names))
     return d_int_feature
 
-def scan_single_apk(apk_name, dir_src, dir_output, main_folders, main_extentions, main_targets):
+def scan_single_apk(apk_name, dir_src, main_folders, main_extentions, main_targets):
     # return a dict of api, list of permission, a dict o plugin declaration
     print_title()
     l_plugin = get_plugin()
@@ -78,7 +78,7 @@ def scan_single_apk(apk_name, dir_src, dir_output, main_folders, main_extentions
     l_permission = cdv_scan_permission.get_permission_l()
     d_plugin_declare = cdv_scan_plugin_declaration.get_all_plugins_d()
 
-    return d_api, l_permission, d_plugin_declare
+    return d_api, l_permission, d_plugin_declare, cdv_scan_plugin_declaration.config_xml, cdv_scan_plugin_declaration.plugins_xml
 
 def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     """
@@ -96,19 +96,23 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     d_api_all = defaultdict(list)  # store api as dictionary {key: value} => {api: list of apks} 
     d_plugin_declare_all = defaultdict(list)  # store declared api as dictionary {key: value} => {api: list of apks
     d_permission_all = defaultdict(list)  # store permission as dictionary {key: value} => {permission: list of apks}
+    d_xml = {"config.xml": [], "plugins.xml": []}
     # scan all apks and update dictionary of api and permission
     total_apks = len(l_apk_name)
     for i, apk_name in enumerate(l_apk_name):
         print_title()
         print_title(f"{i+1}/{total_apks} APK - {apk_name}")
-        d_api, l_permission, d_plugin_declare = scan_single_apk(apk_name, dir_src, dir_output, main_folders, main_extentions, main_targets)
+        d_api, l_permission, d_plugin_declare, config_xml, plugins_xml = scan_single_apk(apk_name, dir_src, main_folders, main_extentions, main_targets)
         d_api_all = update_api(apk_name, d_api_all, d_api)  # concate all dict for api
         d_permission_all = update_permission(apk_name, d_permission_all, l_permission)  # concate all dict for permission
         d_plugin_declare_all = update_api(apk_name, d_plugin_declare_all, d_plugin_declare)  # concate all dict for api
+        d_xml["config.xml"].append(config_xml)
+        d_xml["plugins.xml"].append(plugins_xml)
         print("\n")
+    d_plugin_declare_xml_all = {**d_plugin_declare_all, **d_xml}
     d_int_permission_all = convert_dict_bool(l_apk_name, d_permission_all)
     # Output as csv files
-    output_csv(d_apk_name, d_api_all, d_int_permission_all, d_plugin_declare_all, dir_output)
+    output_csv(d_apk_name, d_api_all, d_int_permission_all, d_plugin_declare_xml_all, dir_output)
 
 
 def scan_folder(dir_path):

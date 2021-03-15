@@ -24,6 +24,8 @@ class ScanPluginDeclaration:
         self.d_name_plugin = (
             d_name_plugin  # a dictionary {name1:plugin1, name2:plugin2}
         )
+        self.config_xml = 0  # if contains config.xml
+        self.plugins_xml = 0  # if contains plugin.xml
         self.target_files = self.__scan_subfolder()
         # self.d_methods = self.__get_all_methods()
 
@@ -32,10 +34,14 @@ class ScanPluginDeclaration:
         target_files = []
         dir_path = self.apk_src + "/" + self.main_folder
         for dirpath, _, filenames in walk(dir_path):
-            for filename in [
-                f for f in filenames if f.endswith(tuple(self.main_extentions))
-            ]:
+            l_filenames = [f for f in filenames if f.endswith(tuple(self.main_extentions))]
+            for filename in l_filenames:
                 target_files.append(path.join(dirpath, filename))
+            # if contains config.xml or plugin.xml
+            if 'config.xml' in l_filenames:
+                self.config_xml = 1
+            if 'plugins.xml' in l_filenames:
+                self.plugins_xml = 1
 
         # print(target_files)
         if len(target_files):
@@ -53,6 +59,8 @@ class ScanPluginDeclaration:
         # find all targets match " target1|target2|..."
         for target_path in self.target_files:
             d_plugins = self.__get_plugin_single_file(target_path, d_plugins)
+        print(f"config.xml: {'Detected' if self.config_xml else 'Missing'}")
+        print(f"plugins.xml: {'Detected' if self.plugins_xml else 'Missing'}")
         print(f"Total target plugins declared: {sum(d_plugins.values())}")
 
         return d_plugins

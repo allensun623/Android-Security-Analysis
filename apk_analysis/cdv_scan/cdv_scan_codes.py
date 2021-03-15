@@ -20,12 +20,13 @@ class ScanCodes:
         self.target_files = self.__scan_subfolder()
 
     def __scan_subfolder(self):
-        # scan all target files (.js, .html, .mustache)
+        # scan all target files (e.g. .js, .html, .mustache)
         target_files = []
         for folder in self.main_folders:
             dir_path = self.apk_src + "/" + folder
-            for dirpath, _, filenames in walk(dir_path):
-                for filename in [f for f in filenames if f.endswith(tuple(self.main_extentions))]:
+            for dirpath, _, filenames in walk(dir_path):            
+                l_filenames = [f for f in filenames if f.endswith(tuple(self.main_extentions))]
+                for filename in l_filenames:
                     target_files.append(path.join(dirpath, filename))
 
         # print(target_files)

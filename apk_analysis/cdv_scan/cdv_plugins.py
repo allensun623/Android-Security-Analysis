@@ -27,7 +27,7 @@ d_plugins = {
         "method": [],
         "property": [],
         "event": ["batterystatus", "batterycritical", "batterylow"],
-        "java_class": ["BatteryListener.java"]
+        "java_class": ["BatteryListener.java"],
     },
     # navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
     "camera": {
@@ -36,7 +36,7 @@ d_plugins = {
         "method": ["getPicture", "cleanup", "onError", "onSuccess", "CameraOptions"],
         "property": [],
         "event": ["Camera."],
-        "java_class": []
+        "java_class": [],
     },
     # var myContact = navigator.contacts.create({"displayName": "Test User"});
     "contacts": {
@@ -44,8 +44,16 @@ d_plugins = {
         "object": "navigator.contacts",
         "method": ["create", "find", "pickContact"],
         "property": [],
-        "event": ["ContactName", "ContactField", "ContactAddress", "ContactOrganization", "ContactFindOptions", "ContactError", "ContactFieldType"], # they are objects, store as event for extraction
-        "java_class": []
+        "event": [
+            "ContactName",
+            "ContactField",
+            "ContactAddress",
+            "ContactOrganization",
+            "ContactFindOptions",
+            "ContactError",
+            "ContactFieldType",
+        ],  # they are objects, store as event for extraction
+        "java_class": [],
     },
     # var string = device.platform;
     "device": {
@@ -116,7 +124,20 @@ d_plugins = {
     "globalization": {
         "name": "Globalization",
         "object": "navigator.globalization",
-        "method": ["getPreferredLanguage", "getLocaleName", "dateToString", "stringToDate", "getDatePattern", "getDateNames", "isDayLightSavingsTime", "getFirstDayOfWeek", "numberToString", "stringToNumber", "getNumberPattern", "getCurrencyPattern"],
+        "method": [
+            "getPreferredLanguage",
+            "getLocaleName",
+            "dateToString",
+            "stringToDate",
+            "getDatePattern",
+            "getDateNames",
+            "isDayLightSavingsTime",
+            "getFirstDayOfWeek",
+            "numberToString",
+            "stringToNumber",
+            "getNumberPattern",
+            "getCurrencyPattern",
+        ],
         "property": [],
         "event": [],
     },
@@ -256,15 +277,17 @@ def get_plugin_object_d():
     # [object1: plugin1, object2: plugin2...]
     return {v["object"]: plugin for plugin, v in d_plugins.items()}
 
+
 def get_name_plugin_d():
     # return plugin and name of API call as a dictionary:
     # [name1: plugin1, name2: plugin2...]
     return {v["name"]: plugin for plugin, v in d_plugins.items()}
 
+
 def get_plugin_name_d():
     # return plugin and name of API call as a dictionary:
     # [name1: plugin1, name2: plugin2...]
-    return {plugin:v["name"]  for plugin, v in d_plugins.items()}
+    return {plugin: v["name"] for plugin, v in d_plugins.items()}
 
 
 def get_event_object():
