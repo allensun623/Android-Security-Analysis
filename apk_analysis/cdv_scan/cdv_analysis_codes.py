@@ -73,7 +73,7 @@ def scan_single_apk(apk_name, dir_src, main_folders, main_extentions, main_targe
     cvd_scan_codes = ScanCodes(apk_src, main_folders, main_extentions, main_targets)
     cdv_scan_permission = ScanPermission(apk_src)
     cdv_scan_plugin_declaration = ScanPluginDeclaration(
-        apk_src, l_plugin=l_plugin, d_name_plugin=d_name_plugin
+        apk_src, l_plugin, d_name_plugin
     )
     d_api = cvd_scan_codes.get_all_targets_d()
     d_api = convert_event_obj(d_api)  # sum up events and obj
@@ -106,16 +106,11 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     l_apk_name = scan_folder(dir_src)
     l_main_folder_exist = [] # APKs don't contain target folder
     l_cdv_apk = [] # contains the list of cordova apks
+    l_cdv_apk_xml = [] # the list of cordava apks contain neither config.xml not plugins.xml 
     # init dict
-    d_api_all = defaultdict(
-        list
-    )  # store api as dictionary {key: value} => {api: list of apks}
-    d_plugin_declare_all = defaultdict(
-        list
-    )  # store declared api as dictionary {key: value} => {api: list of apks
-    d_permission_all = defaultdict(
-        list
-    )  # store permission as dictionary {key: value} => {permission: list of apks}
+    d_api_all = defaultdict(list)  # store api as dictionary {key: value} => {api: list of apks}
+    d_plugin_declare_all = defaultdict(list)  # store declared api as dictionary {key: value} => {api: list of apks
+    d_permission_all = defaultdict(list)  # store permission as dictionary {key: value} => {permission: list of apks}
     d_xml = {"config.xml": [], "plugins.xml": []}
     # scan all apks and update dictionary of api and permission
     total_apks = len(l_apk_name)
@@ -125,21 +120,18 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
         d_apk_data = scan_single_apk(
             apk_name, dir_src, main_folders, main_extentions, main_targets
         )
-        if not d_apk_data["main_folders_exist"]:  # print apks don't have target folder
+        if not d_apk_data["main_folders_exist"]:  # print apks without target folder
             l_main_folder_exist.append(apk_name)
         else:
             l_cdv_apk.append(apk_name)
-            d_api_all = update_api(
-                apk_name, d_api_all, d_apk_data["d_api"]
-            )  # concate all dict for api
-            d_permission_all = update_permission(
-                apk_name, d_permission_all, d_apk_data["l_permission"]
-            )  # concate all dict for permission
-            d_plugin_declare_all = update_api(
-                apk_name, d_plugin_declare_all, d_apk_data["d_plugin_declare"]
-            )  # concate all dict for api
+            d_api_all = update_api(apk_name, d_api_all, d_apk_data["d_api"])  # concate all dict for api
+            d_permission_all = update_permission(apk_name, d_permission_all, d_apk_data["l_permission"])  # concate all dict for permission
+            d_plugin_declare_all = update_api(apk_name, d_plugin_declare_all, d_apk_data["d_plugin_declare"])  # concate all dict for api
             d_xml["config.xml"].append(d_apk_data["config_xml"])
             d_xml["plugins.xml"].append(d_apk_data["plugins_xml"])
+            # the list of cordava apks contain neither config.xml not plugins.xml 
+            if not d_apk_data["config_xml"] and not d_apk_data["plugins_xml"]:
+                l_cdv_apk_xml.append(apk_name)
             print("\n")
 
     d_plugin_declare_xml_all = {**d_plugin_declare_all, **d_xml}
@@ -154,7 +146,8 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
         dir_output,
     )
 
-    print(f"{len(l_main_folder_exist)} APKs are not Cordava APPs: {sorted(l_main_folder_exist)}")
+    print(f"{len(l_main_folder_exist)} APKs are not Cordava APPs: \n{sorted(l_main_folder_exist)}\n")
+    print(f"{len(l_cdv_apk_xml)} Cordava APPs have neither config.xml or plugins.xml: \n{sorted(l_cdv_apk_xml)}\n")
 
 
 def scan_folder(dir_path):

@@ -7,7 +7,8 @@ d_plugins
         "method": [],
         "property": [],
         "event": [],  
-        "java_class": []
+        "permission: []
+        # "java_class": [],
     }
 
 """
@@ -27,7 +28,8 @@ d_plugins = {
         "method": [],
         "property": [],
         "event": ["batterystatus", "batterycritical", "batterylow"],
-        "java_class": ["BatteryListener.java"],
+        "permission": [],
+        # "java_class": ["BatteryListener.java"],
     },
     # navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
     "camera": {
@@ -37,6 +39,7 @@ d_plugins = {
         "property": [],
         "event": ["Camera."],
         "java_class": [],
+        "permission": [],
     },
     # var myContact = navigator.contacts.create({"displayName": "Test User"});
     "contacts": {
@@ -54,6 +57,7 @@ d_plugins = {
             "ContactFieldType",
         ],  # they are objects, store as event for extraction
         "java_class": [],
+        "permission": [],
     },
     # var string = device.platform;
     "device": {
@@ -71,6 +75,7 @@ d_plugins = {
             "serial",
         ],
         "event": [],
+        "permission": [],
     },
     "dialogs": {
         "name": "Notification",
@@ -85,6 +90,7 @@ d_plugins = {
         ],
         "property": [],
         "event": [],
+        "permission": [],
     },
     # document.addEventListener("deviceready", onDeviceReady, false);
     # function onDeviceReady() {
@@ -111,6 +117,7 @@ d_plugins = {
         ],
         "property": [],
         "event": ["requestFileSystem", "resolveLocalFileSystemURL"],
+        "permission": [],
     },
     # navigator.geolocation.getCurrentPosition(geolocationSuccess, [geolocationError], [geolocationOptions]);
     "geolocation": {
@@ -140,6 +147,7 @@ d_plugins = {
         ],
         "property": [],
         "event": [],
+        "permission": [],
     },
     # var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
     # var iab = cordova.InAppBrowser;
@@ -150,6 +158,7 @@ d_plugins = {
         "method": ["open"],
         "property": [],
         "event": [],
+        "permission": [],
     },
     # var my_media = new Media(src, onSuccess, onError);
     # my_media.startRecord();
@@ -174,6 +183,7 @@ d_plugins = {
         ],
         "property": [],
         "event": [],
+        "permission": [],
     },
     # navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
     "media-capture": {
@@ -190,6 +200,7 @@ d_plugins = {
         "method": [],
         "property": ["type"],
         "event": ["offline"],
+        "permission": [],
     },
     # // set to either landscape
     # screen.orientation.lock('landscape');
@@ -213,6 +224,7 @@ d_plugins = {
         "method": ["show", "hide"],
         "property": [],
         "event": [],
+        "permission": [],
     },
     # StatusBar.overlaysWebView(true);
     # if (StatusBar.isVisible) {
@@ -234,6 +246,7 @@ d_plugins = {
         ],
         "property": ["isVisible"],
         "event": ["statusTap"],
+        "permission": [],
     },
     # document.addEventListener("deviceready", onDeviceReady, false);
     # function onDeviceReady() {
@@ -245,6 +258,7 @@ d_plugins = {
         "method": [],
         "property": [],
         "event": [],
+        "permission": [],
     },
 }
 
