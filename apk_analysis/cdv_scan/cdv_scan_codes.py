@@ -15,6 +15,7 @@ class ScanCodes:
         # ToDo: needs to check which folder stores the main source code
         # self.main_folders =  ["src/androidx/", "src/com/"]
         self.main_folders =  main_folders    # main source folder
+        self.main_folders_exist = False
         self.main_extentions = main_extentions    # main suffix file e.g. .js, .html
         self.main_targets = main_targets    # a list of targets e.g. battery, camera
         self.target_files = self.__scan_subfolder()
@@ -32,8 +33,10 @@ class ScanCodes:
         # print(target_files)
         if len(target_files):
             print(f"Total \"{self.main_extentions}\" files scanned: {len(target_files)}")
+            self.main_folders_exist = True
         else:
             print(f"Wrong source path or there is no {self.main_extentions} file in the path: \"{self.apk_src}\n")
+            self.main_folders_exist = False
         return target_files
 
     def __file_dir_exist(self, target_path):
