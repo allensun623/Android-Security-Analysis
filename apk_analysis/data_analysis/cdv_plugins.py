@@ -1,4 +1,5 @@
 """
+copy from cdv_scan/cdv_plugins
 d_plugins
     use example
     plugin: {

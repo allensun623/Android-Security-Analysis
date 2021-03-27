@@ -11,6 +11,8 @@ from .cdv_plugins import get_object_d
 from .cdv_plugins import get_event_object_d
 from .cdv_plugins import get_plugin_object_d
 from .cdv_plugins import get_plugin
+from .cdv_plugins import get_plugin_d
+from .cdv_plugins import get_plugin_permission_d
 from .cdv_plugins import get_name_plugin_d
 from .output_csv import output_csv
 
@@ -62,6 +64,17 @@ def convert_dict_digit(l_apk_name, d_feature):
             d_int_feature[feature].append(int(apk_name in apk_names))
     return d_int_feature
 
+def plugin_permission_map(l_permission, l_plugin):
+    # output {plugin1: 0/1, plugin2: 0/1 } AndroidManifest declares required permission for corresponsing plug
+    print_title()
+    d_plugin_permission = get_plugin_permission_d()
+    d_plugin = {plugin:0 for plugin in l_plugin}
+    for plugin in l_plugin:
+        # if all required permission declared in the obtained list
+        if all(perm in l_permission for perm in d_plugin_permission[plugin]):
+            d_plugin[plugin] = 1
+    return d_plugin
+
 
 def scan_single_apk(apk_name, dir_src, main_folders, main_extentions, main_targets):
     # return a dict of api, list of permission, a dict of plugin declaration
@@ -76,16 +89,18 @@ def scan_single_apk(apk_name, dir_src, main_folders, main_extentions, main_targe
         apk_src, l_plugin, d_name_plugin
     )
     d_api = cvd_scan_codes.get_all_targets_d()
-    d_api = convert_event_obj(d_api)  # sum up events and obj
+    # d_api = convert_event_obj(d_api)  # sum up events and obj
     # map object to plugin
     d_api = {d_plugin_object[k]: v for k, v in d_api.items()}
     l_permission = cdv_scan_permission.get_permission_l()
     d_plugin_declare = cdv_scan_plugin_declaration.get_all_plugins_d()
+    d_plugin_permission_declare = plugin_permission_map(l_permission, l_plugin)
     d_res = {
         "main_folders_exist": cvd_scan_codes.main_folders_exist,  # if the targe folder not exists:
         "d_api": d_api,
         "l_permission": l_permission,
         "d_plugin_declare": d_plugin_declare,
+        "d_plugin_permission_declare": d_plugin_permission_declare,
         "config_xml": cdv_scan_plugin_declaration.config_xml,
         "plugins_xml": cdv_scan_plugin_declaration.plugins_xml,
     }
@@ -109,7 +124,8 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     l_cdv_apk_xml = [] # the list of cordava apks contain neither config.xml not plugins.xml 
     # init dict
     d_api_all = defaultdict(list)  # store api as dictionary {key: value} => {api: list of apks}
-    d_plugin_declare_all = defaultdict(list)  # store declared api as dictionary {key: value} => {api: list of apks
+    d_plugin_declare_all = defaultdict(list)  # store declared api as dictionary {key: value} => {api: list of apks}
+    d_plugin_permission_declare_all = defaultdict(list)  # store declared api as dictionary {key: value} => {api: list of apks}
     d_permission_all = defaultdict(list)  # store permission as dictionary {key: value} => {permission: list of apks}
     d_xml = {"config.xml": [], "plugins.xml": []}
     # scan all apks and update dictionary of api and permission
@@ -127,6 +143,7 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
             d_api_all = update_api(apk_name, d_api_all, d_apk_data["d_api"])  # concate all dict for api
             d_permission_all = update_permission(apk_name, d_permission_all, d_apk_data["l_permission"])  # concate all dict for permission
             d_plugin_declare_all = update_api(apk_name, d_plugin_declare_all, d_apk_data["d_plugin_declare"])  # concate all dict for api
+            d_plugin_permission_declare_all = update_api(apk_name, d_plugin_permission_declare_all, d_apk_data["d_plugin_permission_declare"])  # concate all dict for api
             d_xml["config.xml"].append(d_apk_data["config_xml"])
             d_xml["plugins.xml"].append(d_apk_data["plugins_xml"])
             # the list of cordava apks contain neither config.xml not plugins.xml 
@@ -143,6 +160,7 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
         d_api_all,
         d_int_permission_all,
         d_plugin_declare_xml_all,
+        d_plugin_permission_declare_all,
         dir_output,
     )
 
