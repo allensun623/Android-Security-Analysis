@@ -101,10 +101,23 @@ d_plugins = {
     # function onDeviceReady() {
     #     console.log(cordova.file);
     # }
+    # window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+
+    # console.log('file system open: ' + fs.name);
+    # fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
+
+    #     console.log("fileEntry is file?" + fileEntry.isFile.toString());
+    #     // fileEntry.name == 'someFile.txt'
+    #     // fileEntry.fullPath == '/someFile.txt'
+    #     writeFile(fileEntry, null);
+
+    # }, onErrorCreateFile);
+
+    # }, onErrorLoadFs);
     # TODO - Android file
     "file": {
         "name": "File",
-        "object": "cordova.file",
+        "object": "requestFileSystem",
         "method": [
             "resolveLocalFileSystemURL",
             "applicationDirectory",

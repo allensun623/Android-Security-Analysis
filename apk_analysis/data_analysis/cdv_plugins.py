@@ -105,7 +105,7 @@ d_plugins = {
     # TODO - Android file
     "file": {
         "name": "File",
-        "object": "cordova.file",
+        "object": "file",
         "method": [
             "resolveLocalFileSystemURL",
             "applicationDirectory",

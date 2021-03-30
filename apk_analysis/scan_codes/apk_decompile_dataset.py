@@ -61,8 +61,8 @@ def apk_decompile(apk_codes_path, apk_files, apk_names):
 
 def main():
     # zip_src = "../../apps/apks_upzip/0a37f086841ff927ec8bee9f3bdb1048ecfba54b09aea400e980bd3ef301519d.77f09f214993016fbc747b5bafa5f94f.zip"
-    dir_path = "../../apps/apks/chirag"
-    apk_codes_path = "../../apps/apks_codes/chirag"
+    dir_path = "../../apps/apks/cdv_apks"
+    apk_codes_path = "../../apps/apks_codes/cdv_apks"
     apk_files, apk_names = get_apks(dir_path)
     # decompile a list of apks
     apk_decompile(apk_codes_path, apk_files, apk_names)
