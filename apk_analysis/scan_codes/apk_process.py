@@ -12,7 +12,7 @@ def unzip_apk(apk_src, apk_dst):
 def apk_decompile(apk_codes_path, apk_files, apk_names):
     # Decompile a list of APKs
     print_title("Start Decompile")
-    for i, apk_src, apk_name in enumerate(zip(apk_files, apk_names)):
+    for i, (apk_src, apk_name) in enumerate(zip(apk_files, apk_names)):
         print_title(f"At {i}/{len(apk_files)} decompiling...")
         apk_dst = f"{apk_codes_path}/{apk_name}"
         decompile_apk(apk_src, apk_dst)

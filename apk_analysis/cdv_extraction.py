@@ -16,7 +16,7 @@ def print_title(title=""):
 def main():
     print_title("Start Scanning...")
     # directory for apk source codes
-    dir_src = "../apps/apks_codes/chirag/"
+    dir_src = "../apps/apks_codes/cdv_apk/"
     # directory for output csv
     dir_output = "db/cdv/"
     # main source folder

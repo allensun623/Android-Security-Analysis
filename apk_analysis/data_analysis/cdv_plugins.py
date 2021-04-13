@@ -253,7 +253,7 @@ d_plugins = {
     # }
     "statusbar": {
         "name": "StatusBar",
-        "object": "StatusBar",
+        "object": "StatusBar.",
         "method": [
             "overlaysWebView",
             "styleDefault",

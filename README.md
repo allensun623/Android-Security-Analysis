@@ -34,6 +34,9 @@ Mac:
 
 * `apk_decompile_dataset.py`
     * decompile all apks under a directory
+    * use command "apktool d -f -r {apk_src}" to decompile apk
+        * need to install apktool to system
+        * output folder would be the current folder
 
 
 

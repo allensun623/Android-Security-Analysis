@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 
 # ROC Curve for the classification models
 # from sklearn.metrics import roc_auc_score, roc_curve, auc
-import matplotlib.cm as cm
+# import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 
 # Importing the required modelling libraries
@@ -25,7 +25,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.svm import SVC
-from statistics import mean
+# from statistics import mean
 
 
 class ModelsTraining:
