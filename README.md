@@ -62,7 +62,7 @@ Mac:
 
 
 # DATASET
-[CICMalDroid 2020](https://www.unb.ca/cic/datasets/maldroid-2020.html)
+[cordova_FeatureSet](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/cordova_FeatureSet.csv)
 
 ## Feature Set
 - core plugins:
