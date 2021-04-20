@@ -71,11 +71,11 @@ Mac:
     ```
 - prefix
     - u -> plugin usage: the plugin is used in apk 
-        e.g. `u_battery-status`, `u_camera`
+        - e.g. `u_battery-status`, `u_camera`
     - d -> plugin declaration: the plugin is declared in `config.xml` or `plugins.xml`
-        e.g. `d_battery-status`, `d_camera`
+        - e.g. `d_battery-status`, `d_camera`
     - p -> plugin permission: the plugin is detected with full permissions in `AndroidManifest.xml`
-        e.g. `p_battery-status`, `p_camera`
+        - e.g. `p_battery-status`, `p_camera`
 
 - table shape: 2659 rows × 905 columns
     - 2659 APKs
