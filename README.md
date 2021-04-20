@@ -81,6 +81,10 @@ Mac:
     - 2659 APKs
     - 905 features
 
+- Feature values: all feature values are binary
+    - 1 -> detected (contains, exists)
+    - 0 -> not detected (not contains, not exists)
+
 |  Feature |  Description | 
 |  --- | --- |
 | apk_name | The name of cordova apk | 
