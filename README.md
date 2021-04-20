@@ -63,3 +63,39 @@ Mac:
 
 # DATASET
 [CICMalDroid 2020](https://www.unb.ca/cic/datasets/maldroid-2020.html)
+
+## Feature Set
+- core plugins:
+    ```
+    ['battery-status', 'camera', 'contacts', 'device', 'dialogs', 'file',
+       'geolocation', 'globalization', 'inappbrowser', 'media',
+       'media-capture', 'network-information', 'splashscreen', 'statusbar',
+       'vibration']
+    ```
+- prefix
+    - u -> plugin usage: the plugin is used in apk 
+        e.g. `u_battery-status`, `u_camera`
+    - d -> plugin declaration: the plugin is declared in `config.xml` or `plugins.xml`
+        e.g. `d_battery-status`, `d_camera`
+    - p -> plugin permission: the plugin is detected with full permissions in `AndroidManifest.xml`
+        e.g. `p_battery-status`, `p_camera`
+
+|  Feature |  Description | 
+|  --- | --- |
+| apk_name | The name of cordova apk | 
+| u_battery-status | The plugin battery-status is used in apk | 
+| ... | ... | 
+| u_vibration | The plugin vibration is used in apk | 
+| d_battery-status | The plugin battery-status is declared in `config.xml` or `plugins.xml` | 
+| ... | ... | 
+| d_vibration | The plugin vibration is declared in `config.xml` or `plugins.xml` |
+| config.xml | Whether the file `config.xml` exists in the apk | 
+| plugins.xml | Whether the file `plugins.xml` exists in the apk |
+| p_battery-status | The plugin battery-status is detected with full permissions in `AndroidManifest.xml`|
+| ... | ... | 
+| p_vibration | The plugin vibration is detected with full permissions in `AndroidManifest.xml` | 
+| android.permission.ACCESS_NETWORK_STATE | Whether the permission is detected in `AndroidManifest.xml` | 
+| android.permission.READ_PHONE_STATE | Whether the permission is detected in `AndroidManifest.xml` | 
+| ... | ... | 
+| wtdt.resgrid.andriod.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
+| yonatan.benmoshe.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 

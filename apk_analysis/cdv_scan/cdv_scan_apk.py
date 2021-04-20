@@ -37,31 +37,42 @@ class ScanAPK:
         d_name_plugin = get_name_plugin_d()
         d_plugin_object = get_plugin_object_d()
         apk_src = dir_src + apk_name
-        cvd_scan_codes = ScanCodes(apk_src, main_folders, main_extentions, main_targets)
-        cdv_scan_permission = ScanPermission(apk_src)
-        cdv_scan_plugin_declaration = ScanPluginDeclaration(
-            apk_src, l_plugin, d_name_plugin
-        )
-        d_api, d_api_files = cvd_scan_codes.get_all_targets_d()
-        # d_api = convert_event_obj(d_api)  # sum up events and obj
-        # map object to plugin
-        d_api = {d_plugin_object[k]: v for k, v in d_api.items()}
-        d_api_files = {d_plugin_object[k]: v for k, v in d_api_files.items()}
-        l_permission = cdv_scan_permission.get_permission_l()
-        d_plugin_declare = cdv_scan_plugin_declaration.get_all_plugins_d()
-        d_plugin_permission_declare = self.__plugin_permission_map(
-            l_permission, l_plugin
-        )
         d_res = {
-            "main_folders_exist": cvd_scan_codes.main_folders_exist,  # if the targe folder not exists:
-            "d_api": d_api,
-            "d_api_files": d_api_files,
-            "l_permission": l_permission,
-            "d_plugin_declare": d_plugin_declare,
-            "d_plugin_permission_declare": d_plugin_permission_declare,
-            "config_xml": cdv_scan_plugin_declaration.config_xml,
-            "plugins_xml": cdv_scan_plugin_declaration.plugins_xml,
+            "main_folders_exist": False,  # if the targe folder not exists:
+            "d_api": False,
+            "d_api_files": False,
+            "l_permission": False,
+            "d_plugin_declare": False,
+            "d_plugin_permission_declare": False,
+            "config_xml": False,
+            "plugins_xml": False,
         }
+        cvd_scan_codes = ScanCodes(apk_src, main_folders, main_extentions, main_targets)
+        if cvd_scan_codes.main_folders_exist:
+            cdv_scan_permission = ScanPermission(apk_src)
+            cdv_scan_plugin_declaration = ScanPluginDeclaration(
+                apk_src, l_plugin, d_name_plugin
+            )
+            d_api, d_api_files = cvd_scan_codes.get_all_targets_d()
+            # d_api = convert_event_obj(d_api)  # sum up events and obj
+            # map object to plugin
+            d_api = {d_plugin_object[k]: v for k, v in d_api.items()}
+            d_api_files = {d_plugin_object[k]: v for k, v in d_api_files.items()}
+            l_permission = cdv_scan_permission.get_permission_l()
+            d_plugin_declare = cdv_scan_plugin_declaration.get_all_plugins_d()
+            d_plugin_permission_declare = self.__plugin_permission_map(
+                l_permission, l_plugin
+            )
+            d_res = {
+                "main_folders_exist": cvd_scan_codes.main_folders_exist,  # if the targe folder not exists:
+                "d_api": d_api,
+                "d_api_files": d_api_files,
+                "l_permission": l_permission,
+                "d_plugin_declare": d_plugin_declare,
+                "d_plugin_permission_declare": d_plugin_permission_declare,
+                "config_xml": cdv_scan_plugin_declaration.config_xml,
+                "plugins_xml": cdv_scan_plugin_declaration.plugins_xml,
+            }
 
         return d_res
 
