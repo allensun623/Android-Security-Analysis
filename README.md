@@ -67,10 +67,7 @@ Mac:
 ## Feature Set
 - core plugins:
     ```
-    ['battery-status', 'camera', 'contacts', 'device', 'dialogs', 'file',
-       'geolocation', 'globalization', 'inappbrowser', 'media',
-       'media-capture', 'network-information', 'splashscreen', 'statusbar',
-       'vibration']
+    ['battery-status', 'camera', 'contacts', 'device', 'dialogs', 'file','geolocation', 'globalization', 'inappbrowser', 'media', 'media-capture','network-information', 'splashscreen', 'statusbar', 'vibration']
     ```
 - prefix
     - u -> plugin usage: the plugin is used in apk 
@@ -79,6 +76,10 @@ Mac:
         e.g. `d_battery-status`, `d_camera`
     - p -> plugin permission: the plugin is detected with full permissions in `AndroidManifest.xml`
         e.g. `p_battery-status`, `p_camera`
+
+- table shape: 2659 rows × 905 columns
+    - 2659 APKs
+    - 905 features
 
 |  Feature |  Description | 
 |  --- | --- |
