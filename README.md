@@ -104,3 +104,6 @@ Mac:
 | ... | ... | 
 | wtdt.resgrid.andriod.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
 | yonatan.benmoshe.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
+
+## P.S.
+[not_cordova.py](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/not_cordova.py) contains the list of apks (apk names) are not cordova based. Couldn't locate the folder `assets/www`
