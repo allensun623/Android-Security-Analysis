@@ -62,7 +62,8 @@ Mac:
 
 
 # DATASET
-[cordova_FeatureSet](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/cordova_FeatureSet.csv)
+## Dataset
+[cordova_FeatureSet.csv](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/cordova_FeatureSet.csv)
 
 ## Feature Set
 - core plugins:
@@ -106,4 +107,4 @@ Mac:
 | yonatan.benmoshe.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
 
 ## P.S.
-[not_cordova.py](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/not_cordova.py) contains the list of apks (apk names) are not cordova based. Couldn't locate the folder `assets/www` in source codes of these apks.
+[not_cordova.py](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/not_cordova.py) contains the list of apks names (478/3146) are not cordova based apks. Couldn't locate the folder `assets/www` in source codes of these apks.
