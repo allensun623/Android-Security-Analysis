@@ -78,9 +78,9 @@ Mac:
     - p -> plugin permission: the plugin is detected with full permissions in `AndroidManifest.xml`
         - e.g. `p_battery-status`, `p_camera`
 
-- table shape: 2659 rows × 905 columns
-    - 2659 APKs
-    - 905 features
+- table shape: 2658 rows × 232 columns
+    - 2658 APKs
+    - 232 features
 
 - Feature values: all feature values are binary
     - 1 -> detected (contains, exists)
@@ -104,7 +104,13 @@ Mac:
 | android.permission.READ_PHONE_STATE | Whether the permission is detected in `AndroidManifest.xml` | 
 | ... | ... | 
 | wtdt.resgrid.andriod.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
-| yonatan.benmoshe.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` | 
+| yonatan.benmoshe.permission.C2D_MESSAGE | Whether the permission is detected in `AndroidManifest.xml` |
+| dangerous | count number of dangerous permissions detected in each APK |
+| deprecated | count number of deprecated permissions detected in each APK |
+| normal | count number of normal permissions detected in each APK |
+| Not for use by third-party applications. | count number of Not for use by third-party applications. permissions detected in each APK |
+| signature | count number of signature permissions detected in each APK |
+| class | malicious - 1; benign - 0 |
 
 ## P.S.
 [not_cordova.py](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/not_cordova.py) contains the list of apks names (478/3146) are not cordova based apks. Couldn't locate the folder `assets/www` in source codes of these apks.

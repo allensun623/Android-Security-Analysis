@@ -1,0 +1,179 @@
+"_id",permission,level,details
+6088cb9a4aeabc4a486c089e,android.permission.ACCEPT_HANDOVER,dangerous,Allows a calling app to continue a call which was started in another app
+6088cb9a4aeabc4a486c089f,android.permission.ACCESS_BACKGROUND_LOCATION,dangerous,Allows an app to access location in the background
+6088cb9a4aeabc4a486c08a0,android.permission.ACCESS_COARSE_LOCATION,dangerous,Allows an app to access approximate location
+6088cb9a4aeabc4a486c08a1,android.permission.ACCESS_FINE_LOCATION,dangerous,Allows an app to access precise location
+6088cb9a4aeabc4a486c08a2,android.permission.ACCESS_MEDIA_LOCATION,dangerous,Allows an application to access any geographic locations persisted in the user's shared collection
+6088cb9a4aeabc4a486c08a3,android.permission.ACTIVITY_RECOGNITION,dangerous,Allows an application to recognize physical activity
+6088cb9a4aeabc4a486c08a4,com.android.voicemail.permission.ADD_VOICEMAIL,dangerous,Allows an application to add voicemails into the system
+6088cb9a4aeabc4a486c08a5,android.permission.ANSWER_PHONE_CALLS,dangerous,Allows the app to answer an incoming phone call
+6088cb9a4aeabc4a486c08a6,android.permission.BLUETOOTH_CONNECT,dangerous,Required to be able to connect to paired Bluetooth devices
+6088cb9a4aeabc4a486c08a7,android.permission.BLUETOOTH_SCAN,dangerous,Required to be able to discover and pair nearby Bluetooth devices
+6088cb9a4aeabc4a486c08a8,android.permission.BODY_SENSORS,dangerous,"Allows an application to access data from sensors that the user uses to measure what is happening inside their body, such as heart rate"
+6088cb9a4aeabc4a486c08a9,android.permission.CALL_PHONE,dangerous,Allows an application to initiate a phone call without going through the Dialer user interface for the user to confirm the call
+6088cb9a4aeabc4a486c08aa,android.permission.CAMERA,dangerous,Required to be able to access the camera device
+6088cb9a4aeabc4a486c08ab,android.permission.GET_ACCOUNTS,dangerous,Allows access to the list of accounts in the Accounts Service
+6088cb9a4aeabc4a486c08ac,android.permission.PROCESS_OUTGOING_CALLS,dangerous,"      This constant was deprecated      in API level 29"
+6088cb9a4aeabc4a486c08ad,android.permission.READ_CALENDAR,dangerous,Allows an application to read the user's calendar data
+6088cb9a4aeabc4a486c08ae,android.permission.READ_CALL_LOG,dangerous,Allows an application to read the user's call log
+6088cb9a4aeabc4a486c08af,android.permission.READ_CONTACTS,dangerous,Allows an application to read the user's contacts data
+6088cb9a4aeabc4a486c08b0,android.permission.READ_EXTERNAL_STORAGE,dangerous,Allows an application to read from external storage
+6088cb9a4aeabc4a486c08b1,android.permission.READ_PHONE_NUMBERS,dangerous,Allows read access to the device's phone number(s)
+6088cb9a4aeabc4a486c08b2,android.permission.READ_PHONE_STATE,dangerous,"Allows read only access to phone state, including the current cellular network information, the status of any ongoing calls, and a list of any PhoneAccounts registered on the device"
+6088cb9a4aeabc4a486c08b3,android.permission.READ_SMS,dangerous,Allows an application to read SMS messages
+6088cb9a4aeabc4a486c08b4,android.permission.RECEIVE_MMS,dangerous,Allows an application to monitor incoming MMS messages
+6088cb9a4aeabc4a486c08b5,android.permission.RECEIVE_SMS,dangerous,Allows an application to receive SMS messages
+6088cb9a4aeabc4a486c08b6,android.permission.RECEIVE_WAP_PUSH,dangerous,Allows an application to receive WAP push messages
+6088cb9a4aeabc4a486c08b7,android.permission.RECORD_AUDIO,dangerous,Allows an application to record audio
+6088cb9a4aeabc4a486c08b8,android.permission.SEND_SMS,dangerous,Allows an application to send SMS messages
+6088cb9a4aeabc4a486c08b9,android.permission.USE_SIP,dangerous,Allows an application to use SIP service
+6088cb9a4aeabc4a486c08ba,android.permission.WRITE_CALENDAR,dangerous,Allows an application to write the user's calendar data
+6088cb9a4aeabc4a486c08bb,android.permission.WRITE_CALL_LOG,dangerous,Allows an application to write (but not read) the user's call log data
+6088cb9a4aeabc4a486c08bc,android.permission.WRITE_CONTACTS,dangerous,Allows an application to write the user's contacts data
+6088cb9a4aeabc4a486c08bd,android.permission.WRITE_EXTERNAL_STORAGE,dangerous,Allows an application to write to external storage
+6088cb9a4aeabc4a486c08be,android.permission.READ_PRECISE_PHONE_STATE,dangerous,Allows read only access to precise phone state
+6088cb9a4aeabc4a486c08bf,android.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND,dangerous,"Allows an application to start foreground services from background, can only be granted to privileged apps or app that is SMS/EMERGENCY/SYSTEM GALLERY roles"
+6088cb9a4aeabc4a486c08c0,android.permission.BIND_CARRIER_MESSAGING_SERVICE,deprecated,
+6088cb9a4aeabc4a486c08c1,android.permission.GET_TASKS,deprecated,
+6088cb9a4aeabc4a486c08c2,android.permission.PERSISTENT_ACTIVITY,deprecated,
+6088cb9a4aeabc4a486c08c3,android.permission.RESTART_PACKAGES,deprecated,
+6088cb9a4aeabc4a486c08c4,android.permission.SET_PREFERRED_APPLICATIONS,deprecated,
+6088cb9a4aeabc4a486c08c5,android.permission.SMS_FINANCIAL_TRANSACTIONS,deprecated,"      This constant was deprecated      in API level S"
+6088cb9a4aeabc4a486c08c6,com.android.launcher.permission.UNINSTALL_SHORTCUT,deprecated,Don't use this permission in your app
+6088cb9a4aeabc4a486c08c7,android.permission.ACCESS_LOCATION_EXTRA_COMMANDS,normal,Allows an application to access extra location provider commands
+6088cb9a4aeabc4a486c08c8,android.permission.ACCESS_NETWORK_STATE,normal,Allows applications to access information about networks
+6088cb9a4aeabc4a486c08c9,android.permission.ACCESS_NOTIFICATION_POLICY,normal,Marker permission for applications that wish to access notification policy
+6088cb9a4aeabc4a486c08ca,android.permission.ACCESS_WIFI_STATE,normal,Allows applications to access information about Wi-Fi networks
+6088cb9a4aeabc4a486c08cb,android.permission.BLUETOOTH,normal,Allows applications to connect to paired bluetooth devices
+6088cb9a4aeabc4a486c08cc,android.permission.BLUETOOTH_ADMIN,normal,Allows applications to discover and pair bluetooth devices
+6088cb9a4aeabc4a486c08cd,android.permission.BROADCAST_STICKY,normal,Allows an application to broadcast sticky intents
+6088cb9a4aeabc4a486c08ce,android.permission.CALL_COMPANION_APP,normal,Allows an app which implements the InCallService API to be eligible to be enabled as a calling companion app
+6088cb9a4aeabc4a486c08cf,android.permission.CHANGE_NETWORK_STATE,normal,Allows applications to change network connectivity state
+6088cb9a4aeabc4a486c08d0,android.permission.CHANGE_WIFI_MULTICAST_STATE,normal,Allows applications to enter Wi-Fi Multicast mode
+6088cb9a4aeabc4a486c08d1,android.permission.CHANGE_WIFI_STATE,normal,Allows applications to change Wi-Fi connectivity state
+6088cb9a4aeabc4a486c08d2,android.permission.DISABLE_KEYGUARD,normal,Allows applications to disable the keyguard if it is not secure
+6088cb9a4aeabc4a486c08d3,android.permission.EXPAND_STATUS_BAR,normal,Allows an application to expand or collapse the status bar
+6088cb9a4aeabc4a486c08d4,android.permission.FOREGROUND_SERVICE,normal,Allows a regular application to use Service
+6088cb9a4aeabc4a486c08d5,android.permission.GET_PACKAGE_SIZE,normal,Allows an application to find out the space used by any package
+6088cb9a4aeabc4a486c08d6,android.permission.HIGH_SAMPLING_RATE_SENSORS,normal,Allows an app to access sensor data with a sampling rate greater than 200 Hz
+6088cb9a4aeabc4a486c08d7,com.android.launcher.permission.INSTALL_SHORTCUT,normal,Allows an application to install a shortcut in Launcher
+6088cb9a4aeabc4a486c08d8,android.permission.INTERNET,normal,Allows applications to open network sockets
+6088cb9a4aeabc4a486c08d9,android.permission.KILL_BACKGROUND_PROCESSES,normal,Allows an application to call ActivityManager
+6088cb9a4aeabc4a486c08da,android.permission.MANAGE_OWN_CALLS,normal,Allows a calling application which manages its own calls through the self-managed ConnectionService APIs
+6088cb9a4aeabc4a486c08db,android.permission.MODIFY_AUDIO_SETTINGS,normal,Allows an application to modify global audio settings
+6088cb9a4aeabc4a486c08dc,android.permission.NFC,normal,Allows applications to perform I/O operations over NFC
+6088cb9a4aeabc4a486c08dd,android.permission.NFC_PREFERRED_PAYMENT_INFO,normal,Allows applications to receive NFC preferred payment service information
+6088cb9a4aeabc4a486c08de,android.permission.NFC_TRANSACTION_EVENT,normal,Allows applications to receive NFC transaction events
+6088cb9a4aeabc4a486c08df,android.permission.QUERY_ALL_PACKAGES,normal,"Allows query of any normal app on the device, regardless of manifest declarations"
+6088cb9a4aeabc4a486c08e0,android.permission.READ_SYNC_SETTINGS,normal,Allows applications to read the sync settings
+6088cb9a4aeabc4a486c08e1,android.permission.READ_SYNC_STATS,normal,Allows applications to read the sync stats
+6088cb9a4aeabc4a486c08e2,android.permission.RECEIVE_BOOT_COMPLETED,normal,Allows an application to receive the Intent
+6088cb9a4aeabc4a486c08e3,android.permission.REORDER_TASKS,normal,Allows an application to change the Z-order of tasks
+6088cb9a4aeabc4a486c08e4,android.permission.REQUEST_COMPANION_PROFILE_WATCH,normal,"Allows app to request to be associated with a device via CompanionDeviceManager as a ""watch"" Protection level: normal"
+6088cb9a4aeabc4a486c08e5,android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND,normal,Allows a companion app to run in the background
+6088cb9a4aeabc4a486c08e6,android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND,normal,Allows a companion app to use data in the background
+6088cb9a4aeabc4a486c08e7,android.permission.REQUEST_DELETE_PACKAGES,normal,Allows an application to request deleting packages
+6088cb9a4aeabc4a486c08e8,android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,normal,Permission an application must hold in order to use Settings
+6088cb9a4aeabc4a486c08e9,android.permission.REQUEST_PASSWORD_COMPLEXITY,normal,Allows an application to request the screen lock complexity and prompt users to update the screen lock to a certain complexity level
+6088cb9a4aeabc4a486c08ea,com.android.alarm.permission.SET_ALARM,normal,Allows an application to broadcast an Intent to set an alarm for the user
+6088cb9a4aeabc4a486c08eb,android.permission.SET_WALLPAPER,normal,Allows applications to set the wallpaper
+6088cb9a4aeabc4a486c08ec,android.permission.SET_WALLPAPER_HINTS,normal,Allows applications to set the wallpaper hints
+6088cb9a4aeabc4a486c08ed,android.permission.TRANSMIT_IR,normal,"Allows using the device's IR transmitter, if available"
+6088cb9a4aeabc4a486c08ee,android.permission.USE_BIOMETRIC,normal,Allows an app to use device supported biometric modalities
+6088cb9a4aeabc4a486c08ef,android.permission.USE_FINGERPRINT,normal,"      This constant was deprecated      in API level 28"
+6088cb9a4aeabc4a486c08f0,android.permission.USE_FULL_SCREEN_INTENT,normal,Required for apps targeting Build
+6088cb9a4aeabc4a486c08f1,android.permission.VIBRATE,normal,Allows access to the vibrator
+6088cb9a4aeabc4a486c08f2,android.permission.WAKE_LOCK,normal,Allows using PowerManager WakeLocks to keep processor from sleeping or screen from dimming
+6088cb9a4aeabc4a486c08f3,android.permission.WRITE_SYNC_SETTINGS,normal,Allows applications to write the sync settings
+6088cb9a4aeabc4a486c08f4,android.permission.INTERACT_ACROSS_PROFILES,normal,Allows interaction across profiles in the same profile group
+6088cb9a4aeabc4a486c08f5,android.permission.REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE,normal,Allows an application to subscribe to notifications about the presence status change of their associated companion device
+6088cb9a4aeabc4a486c08f6,android.permission.SCHEDULE_EXACT_ALARM,normal,Allows an app to use exact alarm scheduling APIs to perform timing sensitive background work
+6088cb9a4aeabc4a486c08f7,android.permission.MEDIA_CONTENT_CONTROL,Not for use by third-party applications.,Allows an application to know what content is playing and control its playback
+6088cb9a4aeabc4a486c08f8,android.permission.READ_LOGS,Not for use by third-party applications.,Allows an application to read the low-level system log files
+6088cb9a4aeabc4a486c08f9,android.permission.ACCESS_CHECKIN_PROPERTIES,Not for use by third-party applications.,"Allows read/write access to the ""properties"" table in the checkin database, to change values that get uploaded"
+6088cb9a4aeabc4a486c08fa,android.permission.ACCOUNT_MANAGER,Not for use by third-party applications.,Allows applications to call into AccountAuthenticators
+6088cb9a4aeabc4a486c08fb,android.permission.BIND_APPWIDGET,Not for use by third-party applications.,Allows an application to tell the AppWidget service which application can access AppWidget's data
+6088cb9a4aeabc4a486c08fc,android.permission.BLUETOOTH_PRIVILEGED,Not for use by third-party applications.,"Allows applications to pair bluetooth devices without user interaction, and to allow or disallow phonebook access or message access"
+6088cb9a4aeabc4a486c08fd,android.permission.BROADCAST_PACKAGE_REMOVED,Not for use by third-party applications.,Allows an application to broadcast a notification that an application package has been removed
+6088cb9a4aeabc4a486c08fe,android.permission.BROADCAST_SMS,Not for use by third-party applications.,Allows an application to broadcast an SMS receipt notification
+6088cb9a4aeabc4a486c08ff,android.permission.BROADCAST_WAP_PUSH,Not for use by third-party applications.,Allows an application to broadcast a WAP PUSH receipt notification
+6088cb9a4aeabc4a486c0900,android.permission.CALL_PRIVILEGED,Not for use by third-party applications.,"Allows an application to call any phone number, including emergency numbers, without going through the Dialer user interface for the user to confirm the call being placed"
+6088cb9a4aeabc4a486c0901,android.permission.CAPTURE_AUDIO_OUTPUT,Not for use by third-party applications.,Allows an application to capture audio output
+6088cb9a4aeabc4a486c0902,android.permission.CHANGE_COMPONENT_ENABLED_STATE,Not for use by third-party applications.,Allows an application to change whether an application component (other than its own) is enabled or not
+6088cb9a4aeabc4a486c0903,android.permission.CONTROL_LOCATION_UPDATES,Not for use by third-party applications.,Allows enabling/disabling location update notifications from the radio
+6088cb9a4aeabc4a486c0904,android.permission.DELETE_PACKAGES,Not for use by third-party applications.,Allows an application to delete packages
+6088cb9a4aeabc4a486c0905,android.permission.DIAGNOSTIC,Not for use by third-party applications.,Allows applications to RW to diagnostic resources
+6088cb9a4aeabc4a486c0906,android.permission.DUMP,Not for use by third-party applications.,Allows an application to retrieve state dump information from system services
+6088cb9a4aeabc4a486c0907,android.permission.FACTORY_TEST,Not for use by third-party applications.,"Run as a manufacturer test application, running as the root user"
+6088cb9a4aeabc4a486c0908,android.permission.INSTALL_LOCATION_PROVIDER,Not for use by third-party applications.,Allows an application to install a location provider into the Location Manager
+6088cb9a4aeabc4a486c0909,android.permission.INSTALL_PACKAGES,Not for use by third-party applications.,Allows an application to install packages
+6088cb9a4aeabc4a486c090a,android.permission.LOCATION_HARDWARE,Not for use by third-party applications.,"Allows an application to use location features in hardware, such as the geofencing api"
+6088cb9a4aeabc4a486c090b,android.permission.MANAGE_DOCUMENTS,Not for use by third-party applications.,"Allows an application to manage access to documents, usually as part of a document picker"
+6088cb9a4aeabc4a486c090c,android.permission.MASTER_CLEAR,Not for use by third-party applications.,Not for use by third-party applications
+6088cb9a4aeabc4a486c090d,android.permission.MODIFY_PHONE_STATE,Not for use by third-party applications.,"Allows modification of the telephony state - power on, mmi, etc"
+6088cb9a4aeabc4a486c090e,android.permission.MOUNT_FORMAT_FILESYSTEMS,Not for use by third-party applications.,Allows formatting file systems for removable storage
+6088cb9a4aeabc4a486c090f,android.permission.MOUNT_UNMOUNT_FILESYSTEMS,Not for use by third-party applications.,Allows mounting and unmounting file systems for removable storage
+6088cb9a4aeabc4a486c0910,android.permission.READ_INPUT_STATE,Not for use by third-party applications.,"      This constant was deprecated      in API level 16"
+6088cb9a4aeabc4a486c0911,android.permission.REBOOT,Not for use by third-party applications.,Required to be able to reboot the device
+6088cb9a4aeabc4a486c0912,android.permission.SEND_RESPOND_VIA_MESSAGE,Not for use by third-party applications.,Allows an application (Phone) to send a request to other applications to handle the respond-via-message action during incoming calls
+6088cb9a4aeabc4a486c0913,android.permission.SET_ALWAYS_FINISH,Not for use by third-party applications.,Allows an application to control whether activities are immediately finished when put in the background
+6088cb9a4aeabc4a486c0914,android.permission.SET_ANIMATION_SCALE,Not for use by third-party applications.,Modify the global animation scaling factor
+6088cb9a4aeabc4a486c0915,android.permission.SET_DEBUG_APP,Not for use by third-party applications.,Configure an application for debugging
+6088cb9a4aeabc4a486c0916,android.permission.SET_PROCESS_LIMIT,Not for use by third-party applications.,Allows an application to set the maximum number of (not needed) application processes that can be running
+6088cb9a4aeabc4a486c0917,android.permission.SET_TIME,Not for use by third-party applications.,Allows applications to set the system time directly
+6088cb9a4aeabc4a486c0918,android.permission.SET_TIME_ZONE,Not for use by third-party applications.,Allows applications to set the system time zone directly
+6088cb9a4aeabc4a486c0919,android.permission.SIGNAL_PERSISTENT_PROCESSES,Not for use by third-party applications.,Allow an application to request that a signal be sent to all persistent processes
+6088cb9a4aeabc4a486c091a,android.permission.STATUS_BAR,Not for use by third-party applications.,"Allows an application to open, close, or disable the status bar and its icons"
+6088cb9a4aeabc4a486c091b,android.permission.UPDATE_DEVICE_STATS,Not for use by third-party applications.,Allows an application to update device statistics
+6088cb9a4aeabc4a486c091c,android.permission.WRITE_APN_SETTINGS,Not for use by third-party applications.,Allows applications to write the apn settings and read sensitive fields of an existing apn settings like user and password
+6088cb9a4aeabc4a486c091d,android.permission.WRITE_GSERVICES,Not for use by third-party applications.,Allows an application to modify the Google service map
+6088cb9a4aeabc4a486c091e,android.permission.WRITE_SECURE_SETTINGS,Not for use by third-party applications.,Allows an application to read or write the secure system settings
+6088cb9a4aeabc4a486c091f,android.permission.BIND_COMPANION_DEVICE_SERVICE,Not for use by third-party applications.,Must be required by any CompanionDeviceServices to ensure that only the system can bind to it
+6088cb9a4aeabc4a486c0920,android.permission.BIND_CONTROLS,Not for use by third-party applications.,Allows SystemUI to request third party controls
+6088cb9a4aeabc4a486c0921,android.permission.BIND_QUICK_SETTINGS_TILE,Not for use by third-party applications.,Allows an application to bind to third party quick settings tiles
+6088cb9a4aeabc4a486c0922,android.permission.BIND_ACCESSIBILITY_SERVICE,signature,"Must be required by an AccessibilityService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0923,android.permission.BIND_AUTOFILL_SERVICE,signature,"Must be required by a AutofillService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0924,android.permission.BIND_CARRIER_MESSAGING_CLIENT_SERVICE,signature,A subclass of CarrierMessagingClientService must be protected with this permission
+6088cb9a4aeabc4a486c0925,android.permission.BIND_CHOOSER_TARGET_SERVICE,signature,"      This constant was deprecated      in API level 30"
+6088cb9a4aeabc4a486c0926,android.permission.BIND_CONDITION_PROVIDER_SERVICE,signature,"Must be required by a ConditionProviderService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0927,android.permission.BIND_DEVICE_ADMIN,signature,"Must be required by device administration receiver, to ensure that only the system can interact with it"
+6088cb9a4aeabc4a486c0928,android.permission.BIND_DREAM_SERVICE,signature,"Must be required by an DreamService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0929,android.permission.BIND_INPUT_METHOD,signature,"Must be required by an InputMethodService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c092a,android.permission.BIND_MIDI_DEVICE_SERVICE,signature,"Must be required by an MidiDeviceService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c092b,android.permission.BIND_NFC_SERVICE,signature,Must be required by a HostApduService or OffHostApduService to ensure that only the system can bind to it
+6088cb9a4aeabc4a486c092c,android.permission.BIND_NOTIFICATION_LISTENER_SERVICE,signature,"Must be required by an NotificationListenerService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c092d,android.permission.BIND_PRINT_SERVICE,signature,"Must be required by a PrintService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c092e,android.permission.BIND_QUICK_ACCESS_WALLET_SERVICE,signature,Must be required by a QuickAccessWalletService to ensure that only the system can bind to it
+6088cb9a4aeabc4a486c092f,android.permission.BIND_TEXT_SERVICE,signature,Must be required by a TextService (e
+6088cb9a4aeabc4a486c0930,android.permission.BIND_VOICE_INTERACTION,signature,"Must be required by a VoiceInteractionService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0931,android.permission.BIND_VPN_SERVICE,signature,"Must be required by a VpnService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0932,android.permission.BIND_VR_LISTENER_SERVICE,signature,"Must be required by an VrListenerService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0933,android.permission.REQUEST_INSTALL_PACKAGES,signature,Allows an application to request installing packages
+6088cb9a4aeabc4a486c0934,android.permission.MANAGE_ONGOING_CALLS,signature,Allows to query ongoing call details and manage ongoing calls Protection level: signature|appop
+6088cb9a4aeabc4a486c0935,android.permission.USE_ICC_AUTH_WITH_DEVICE_IDENTIFIER,signature,Allows to read device identifiers and use ICC based authentication like EAP-AKA
+6088cb9a4aeabc4a486c0936,android.permission.MANAGE_EXTERNAL_STORAGE,signature,Allows an application a broad access to external storage in scoped storage
+6088cb9a4aeabc4a486c0937,android.permission.MANAGE_MEDIA,signature,Allows an application to modify and delete media files on this device or any connected storage device without user confirmation
+6088cb9a4aeabc4a486c0938,android.permission.INSTANT_APP_FOREGROUND_SERVICE,signature,Allows an instant app to create foreground services
+6088cb9a4aeabc4a486c0939,android.permission.START_VIEW_PERMISSION_USAGE,signature,Allows the holder to start the permission usage screen for an app
+6088cb9a4aeabc4a486c093a,android.permission.WRITE_SETTINGS,signature,Allows an application to read or write the system settings
+6088cb9a4aeabc4a486c093b,android.permission.BIND_CALL_REDIRECTION_SERVICE,signature,"Must be required by a CallRedirectionService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c093c,android.permission.BIND_CARRIER_SERVICES,signature,The system process that is allowed to bind to services in carrier apps will have this permission
+6088cb9a4aeabc4a486c093d,android.permission.BIND_INCALL_SERVICE,signature,"Must be required by a InCallService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c093e,android.permission.BIND_REMOTEVIEWS,signature,"Must be required by a RemoteViewsService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c093f,android.permission.BIND_SCREENING_SERVICE,signature,"Must be required by a CallScreeningService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0940,android.permission.BIND_TELECOM_CONNECTION_SERVICE,signature,"Must be required by a ConnectionService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0941,android.permission.BIND_TV_INPUT,signature,Must be required by a TvInputService to ensure that only the system can bind to it
+6088cb9a4aeabc4a486c0942,android.permission.BIND_VISUAL_VOICEMAIL_SERVICE,signature,Must be required by a link VisualVoicemailService to ensure that only the system can bind to it
+6088cb9a4aeabc4a486c0943,android.permission.BIND_WALLPAPER,signature,"Must be required by a WallpaperService, to ensure that only the system can bind to it"
+6088cb9a4aeabc4a486c0944,android.permission.CLEAR_APP_CACHE,signature,Allows an application to clear the caches of all installed applications on the device
+6088cb9a4aeabc4a486c0945,android.permission.DELETE_CACHE_FILES,signature,"Old permission for deleting an app's cache files, no longer used, but signals for us to quietly ignore calls instead of throwing an exception"
+6088cb9a4aeabc4a486c0946,android.permission.GET_ACCOUNTS_PRIVILEGED,signature,Allows access to the list of accounts in the Accounts Service
+6088cb9a4aeabc4a486c0947,android.permission.GLOBAL_SEARCH,signature,This permission can be used on content providers to allow the global search system to access their data
+6088cb9a4aeabc4a486c0948,com.android.voicemail.permission.READ_VOICEMAIL,signature,Allows an application to read voicemails in the system
+6088cb9a4aeabc4a486c0949,com.android.voicemail.permission.WRITE_VOICEMAIL,signature,Allows an application to modify and remove existing voicemails in the system
+6088cb9a4aeabc4a486c094a,android.permission.LOADER_USAGE_STATS,signature,Allows a data loader to read a package's access logs
+6088cb9a4aeabc4a486c094b,android.permission.BATTERY_STATS,signature,Allows an application to collect battery statistics Protection level: signature|privileged|development
+6088cb9a4aeabc4a486c094c,android.permission.CHANGE_CONFIGURATION,signature,"Allows an application to modify the current configuration, such as locale"
+6088cb9a4aeabc4a486c094d,android.permission.PACKAGE_USAGE_STATS,signature,Allows an application to collect component usage statistics Declaring the permission implies intention to use the API and the user of the device can grant permission through the Settings application
+6088cb9a4aeabc4a486c094e,android.permission.SYSTEM_ALERT_WINDOW,signature,Allows an app to create windows using the type WindowManager
+6088cb9a4aeabc4a486c094f,android.permission.HIDE_OVERLAY_WINDOWS,signature,Allows an app to prevent non-system-overlay windows from being drawn on top of it

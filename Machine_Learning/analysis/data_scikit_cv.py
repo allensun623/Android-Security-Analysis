@@ -42,18 +42,24 @@ class ModelsTraining:
     Input: dataframe, target class name
     """
 
-    def __init__(self, df, class_name):
+    def __init__(self, df, class_name, drop_cols):
         self.df = df
         self.accuracy_ls = dict()
         self.f1_score_ls = dict()
         self.model_ls = dict()
         self.y_pred_ls = dict()
-        self.X = self.df.drop(columns=class_name)
+        self.drop_cols = self.__get_drop_cols(drop_cols, class_name)
+        self.X = self.df.drop(columns=(self.drop_cols))
         self.y = self.df[class_name]
         self.X_test, self.X_train, self.y_test, self.y_train = self.split_data()
         self.train_model()
         # results of df containing accuracy and f1
         self.df_result = self.accuracy_f1()
+
+    def __get_drop_cols(self, drop_cols, class_name):
+        res = list(drop_cols)
+        res.append(class_name)
+        return res
 
     def split_data(self):
         # Split data: training set: 80%, testing set: 20%
