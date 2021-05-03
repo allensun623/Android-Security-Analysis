@@ -63,7 +63,7 @@ Mac:
 
 # DATASET
 ## Dataset
-[cordova_FeatureSet.csv](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/cordova_FeatureSet.csv)
+[cdv_featureset_updated.csv](https://github.com/AllenSun7/Android-Security-Analysis/tree/main/apk_analysis/db/cdv/cdv_featureset_updated.csv)
 
 ## Feature Set
 - core plugins:
@@ -78,13 +78,23 @@ Mac:
     - p -> plugin permission: the plugin is detected with full permissions in `AndroidManifest.xml`
         - e.g. `p_battery-status`, `p_camera`
 
+- level 
+    - dangerous
+    - depreciated
+    - normal
+    - Not for use by third-party applications.
+    - signature
+
 - table shape: 2658 rows × 232 columns
     - 2658 APKs
     - 232 features
 
-- Feature values: all feature values are binary
-    - 1 -> detected (contains, exists)
-    - 0 -> not detected (not contains, not exists)
+- Feature values: 
+    - feature values for plugins and permissions are binary
+        - 1 -> detected (contains, exists)
+        - 0 -> not detected (not contains, not exists)
+    - feature values for permission levels are counts for total number of permissions detected for each level in the APK
+
 
 |  Feature |  Description | 
 |  --- | --- |
