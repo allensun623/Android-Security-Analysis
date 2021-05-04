@@ -160,26 +160,27 @@ def run_scan(dir_src, dir_output, main_folders, main_extentions, main_targets):
     d_int_permission_all = convert_dict_bool(l_cdv_apk, d_permission_all)
     d_apk_name = {"apk_name": l_cdv_apk}
     # Output as csv files
-    output_csv(
-        d_apk_name,
-        d_api_all,
-        d_int_permission_all,
-        d_plugin_declare_xml_all,
-        d_plugin_permission_declare_all,
-        dir_output,
-    )
+    # output_csv(
+    #     d_apk_name,
+    #     d_api_all,
+    #     d_int_permission_all,
+    #     d_plugin_declare_xml_all,
+    #     d_plugin_permission_declare_all,
+    #     dir_output,
+    # )
 
-    print(
-        f"{len(l_main_folder_exist)} APKs are not Cordava APPs: \n{sorted(l_main_folder_exist)}\n"
-    )
-    print(
-        f"{len(l_cdv_apk_xml)} Cordava APKs have neither config.xml nor plugins.xml: \n{sorted(l_cdv_apk_xml)}\n"
-    )
-    # output_json_undeclared_plugin(d_cdv_apk_undeclared_plugin, l_cdv_apk)
+    # print(
+    #     f"{len(l_main_folder_exist)} APKs are not Cordava APPs: \n{sorted(l_main_folder_exist)}\n"
+    # )
+    # print(
+    #     f"{len(l_cdv_apk_xml)} Cordava APKs have neither config.xml nor plugins.xml: \n{sorted(l_cdv_apk_xml)}\n"
+    # )
+    output_json_undeclared_plugin(d_cdv_apk_undeclared_plugin, l_cdv_apk)
 
 def output_json_undeclared_plugin(d_cdv_apk_undeclared_plugin, l_cdv_apk):
     data = d_cdv_apk_undeclared_plugin
-    file_path = "../db/cdv/apk_undeclared_plugin.json"
+    # file_path = "../db/cdv/apk_undeclared_plugin.json"
+    file_path = "../db/cdv/apk_plugin_usage.json"
     print(f"output path for apks with undeclared plugin: {file_path}")
     print(f"{len(file_path)}/{len(l_cdv_apk)} apks with undeclared plugin")
     with open(file_path, "w", encoding ='utf8') as json_file:

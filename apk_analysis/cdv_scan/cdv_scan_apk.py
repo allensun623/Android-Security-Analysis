@@ -82,7 +82,11 @@ class ScanAPK:
         # store the plugin used (value>1) but not declared(value=0)
         d_p_use = self.d_apk_data["d_api"]
         d_p_dec = self.d_apk_data["d_plugin_declare"]
-        l_res = [p for p, v in d_p_use.items() if int(v) > 0 and int(d_p_dec[p]) == 0]
+        # for undeclared
+        # l_res = [p for p, v in d_p_use.items() if int(v) > 0 and int(d_p_dec[p]) == 0]
+
+        # this time, it is used for all plugins
+        l_res = [p for p, v in d_p_use.items() if int(v) > 0]
         return l_res
 
     def __plugin_permission_map(self, l_permission, l_plugin):
